@@ -1,0 +1,25 @@
+CustomUI Studio — Licence d'utilisation gratuite (freeware)
+Copyright © 2026 Régis DEVAUX. Tous droits réservés.
+
+1. Droit d'utilisation
+   Vous pouvez télécharger, installer et utiliser CustomUI Studio gratuitement,
+   à titre personnel ou professionnel, sur autant d'ordinateurs que vous le souhaitez.
+
+2. Redistribution
+   Vous pouvez partager le lien de téléchargement officiel. Toute redistribution
+   du fichier exécutable doit se faire sans modification et sans contrepartie
+   financière.
+
+3. Restrictions
+   Il est interdit de vendre le logiciel, de le modifier, de le décompiler,
+   de le désassembler ou d'en extraire le code source, sauf dans les limites
+   autorisées par la loi applicable.
+
+4. Fichiers produits
+   Les classeurs, fichiers XML et modules VBA que vous créez avec CustomUI Studio
+   vous appartiennent entièrement.
+
+5. Absence de garantie
+   Le logiciel est fourni « tel quel », sans garantie d'aucune sorte. Conservez
+   une copie de vos classeurs avant de les modifier. L'auteur ne pourra être tenu
+   responsable d'aucun dommage lié à son utilisation.
