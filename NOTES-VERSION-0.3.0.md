@@ -1,10 +1,10 @@
-## CustomUI Studio 0.3.0
+## CustomUI Studio 1.0.0
 
 Première version publique. Éditeur de rubans pour Microsoft Excel, gratuit et portable.
 
 ### Téléchargement
 
-`CustomUI-Studio-0.3.0-portable.exe` — un seul fichier, sans installation, Windows 64 bits.
+`CustomUI-Studio-1.0.0-portable.exe` — un seul fichier, sans installation, Windows 64 bits.
 
 SHA-256 : `2efeb2ed4e5b175a7dac014b767a3f0421baaec8a804065243bf1b1750601c37`
 
