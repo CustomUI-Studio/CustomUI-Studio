@@ -63,7 +63,7 @@ Empreinte SHA-256 de `CustomUI-Studio-1.0.0-portable.exe` :
 Pour la vérifier, dans PowerShell :
 
 ```powershell
-Get-FileHash .\CustomUI-Studio-0.3.0-portable.exe -Algorithm SHA256
+Get-FileHash .\CustomUI-Studio-1.0.0-portable.exe -Algorithm SHA256
 ```
 
 ## Configuration requise
