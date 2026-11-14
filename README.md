@@ -46,7 +46,7 @@ Quand vous cliquez sur **Enregistrer Office**, votre classeur n'est pas reconstr
 
 ## Installation
 
-1. Téléchargez `CustomUI-Studio-0.3.0-portable.exe` depuis la page [Releases](../../releases/latest).
+1. Téléchargez `CustomUI-Studio-1.0.0-portable.exe` depuis la page [Releases](../../releases/latest).
 2. Double-cliquez dessus. Aucune installation n'est nécessaire.
 
 > **Message « Windows a protégé votre ordinateur » ?**
@@ -54,7 +54,7 @@ Quand vous cliquez sur **Enregistrer Office**, votre classeur n'est pas reconstr
 
 ### Vérifier le fichier téléchargé (facultatif)
 
-Empreinte SHA-256 de `CustomUI-Studio-0.3.0-portable.exe` :
+Empreinte SHA-256 de `CustomUI-Studio-1.0.0-portable.exe` :
 
 ```
 2efeb2ed4e5b175a7dac014b767a3f0421baaec8a804065243bf1b1750601c37
