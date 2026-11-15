@@ -152,6 +152,6 @@ XML validation uses libxml2 (MIT license) through xmllint-wasm (MIT license). Th
 
 ## License
 
-Free software (freeware), source code not published. See [LICENCE.txt](LICENCE.txt) (in French).
+Free software (freeware), source code not published. See [LICENCE.txt](LICENCE.en.txt).
 
 © 2026 Régis DEVAUX — All rights reserved.
