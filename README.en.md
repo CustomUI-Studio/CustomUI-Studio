@@ -136,7 +136,7 @@ An installable version, signed by Microsoft, is being published on the Microsoft
 
 ## Versions
 
-Version 1.0.0 is the first stable release. Details of each version are in the [version history](CHANGELOG.md) (in French).
+Version 1.0.0 is the first stable release. Details of each version are in the [version history](CHANGELOG.en.md).
 
 ## Questions, suggestions, bugs
 
