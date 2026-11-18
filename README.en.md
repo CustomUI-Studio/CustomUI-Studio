@@ -21,7 +21,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.0.0.exe"><b>⬇️ Download CustomUI Studio 1.0.0</b></a>
+  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.8.1.exe"><b>⬇️ Download CustomUI Studio 1.8.1</b></a>
+  · <a href="https://apps.microsoft.com/detail/9PH54K3T7TCT"><b>Microsoft Store</b></a>
 </p>
 
 ![CustomUI Studio visual builder](docs/capture-constructeur-en.png)
@@ -34,7 +35,7 @@ CustomUI Studio fixes the problem at the source. You build the ribbon visually, 
 
 ## Three steps
 
-1. **Import** your `.xlsx` or `.xlsm` workbook, or start from an empty ribbon.
+1. **Import** your `.xlsx` or `.xlsm` workbook or your `.xlam` add-in, or start from an empty ribbon or a template.
 2. **Build** the ribbon: add tabs, groups and controls, pick their icons, set their properties. The preview updates live.
 3. **Save**: the ribbon is written into the workbook, and the matching VBA module is ready to import.
 
@@ -48,11 +49,22 @@ CustomUI Studio fixes the problem at the source. You build the ribbon visually, 
 - **Live preview, as in Excel**: lists, menus and tooltips can be tried on hover.
 - **Icons**: imageMso library sorted by category with search, your own images, and a catalog of native Excel commands (Save, Copy, AutoSum…). With Excel installed, the preview shows the real Excel icons.
 - **Two ribbon formats**: CustomUI 2006 (Office 2007) and CustomUI 2009 (Office 2010 and later).
+- **Contextual tabs and Backstage**: extend the tabs Excel shows for a table, a chart or a picture, and build the File menu (Backstage) in the editor.
+- **Undo / redo** (Ctrl+Z, Ctrl+Y) for every change.
+- **Compatibility shown**: for the targeted Excel version, each command, icon and menu has a "verified", "documented" or "unknown" badge, and a report sums up the project.
 - **In French or English**: the language is chosen at first launch and can be changed at any time.
+
+### Projects, components and templates
+
+- **`.cuis` projects**: save a ribbon independently of any workbook, reopen it, then apply it to the workbook of your choice.
+- **Reusable `.cuic` components**: a group, a tab or a menu with its VBA code, to insert into any project. A local library keeps them, and several components are provided (PDF export, sheet navigation…).
+- **Ready-to-use templates**: inventory, sales management, dashboard, with their ribbon, VBA code and the "Prepare the workbook" macro, which creates the expected sheets and tables without touching what exists.
 
 ### Right-click menus
 
-- **Your commands in Excel's right-click menus**: cell, row or column header, table, PivotTable, shape. You place them before or after an Excel command.
+- **Your commands in Excel's right-click menus**: the 89 menus of Microsoft's official list (cell, row, column, table, sheet tab, charts, shapes, slicers…). You place them before or after an Excel command.
+- **Entries shown only where they make sense**: on a given sheet, in a given table or column, on a non-empty cell… The VBA code of the conditions is generated for you.
+- **Copy an entry to other menus** and organize it in submenus.
 - **Hide Excel commands in one click**: for the cell, row, column and table menus, tick the commands to keep or apply a preset ("Minimal menu", "No copy-paste"…).
 - **Faithful preview**: the menu is shown as Excel will display it.
 - Commands the ribbon cannot hide are hidden by VBA, with the procedures generated for you.
@@ -69,11 +81,22 @@ Right-click menus require the CustomUI 2009 format.
   SetControlState "btnExporter", "enabled", False
   ```
 
+### Add-ins and batch processing
+
+- **Excel `.xlam` add-ins**: open, edit and save an add-in again; the generated VBA code adapts (it acts on the active workbook). A guided procedure explains how to create the add-in in Excel.
+- **Apply to several workbooks** (desktop version): choose workbooks or a folder, check them before writing, and get copies in an output folder plus a CSV report. Originals are never modified.
+
+### Controlled AI assistant
+
+- **Describe what you want**: the application prepares a request to paste into the AI tool of your choice, then checks its answer before any change.
+- **Nothing is invented**: an attribute, control or command the format does not know is refused; each change is shown, removals are confirmed, and "Undo" goes back in one step.
+- **No connection**: CustomUI Studio sends nothing. VBA code, images and file names are never included in the request.
+
 ### Checks before saving
 
 - **Validation against Microsoft's schemas**, offline: the XML editor lists each problem with its line, a clear explanation and the fix to apply.
 - **Saving is blocked while an error remains**: unknown or empty attribute, duplicate identifier, misplaced control, wrong order…
-- **XML editor kept in sync** with the interface. Parts that are not handled visually (Backstage, contextual tabs) are kept as they are.
+- **XML editor kept in sync** with the interface.
 
 ## Your workbook is respected
 
@@ -88,7 +111,7 @@ When you click **Save to Office**, your workbook is not rebuilt:
 
 ### Portable version
 
-1. Download [`CustomUI.Studio.1.0.0.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.0.0.exe) from the [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest) page.
+1. Download [`CustomUI.Studio.1.8.1.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.8.1.exe) from the [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest) page.
 2. Double-click it. No installation is needed.
 
 > **"Windows protected your PC" message?**
@@ -99,29 +122,29 @@ When you click **Save to Office**, your workbook is not rebuilt:
 
 <br>
 
-SHA-256 hash of `CustomUI.Studio.1.0.0.exe`:
+SHA-256 hash of `CustomUI.Studio.1.8.1.exe`:
 
 ```
-bf1e050d78f5d59f764fc5e34be550746cb8a4711cd5d47ab9c8e45841e4a93f
+ce4337e368ffd5d3b43b185bebf50ecb6115e1346efc208aceb255758168ab92
 ```
 
 To check it, in PowerShell:
 
 ```powershell
-Get-FileHash .\CustomUI.Studio.1.0.0.exe -Algorithm SHA256
+Get-FileHash .\CustomUI.Studio.1.8.1.exe -Algorithm SHA256
 ```
 
 </details>
 
 ### Microsoft Store
 
-An installable version, signed by Microsoft, is being published on the Microsoft Store. The link will be added here as soon as it is available.
+CustomUI Studio is available on the [Microsoft Store](https://apps.microsoft.com/detail/9PH54K3T7TCT). The Store version is signed by Microsoft, installs without any Windows warning and updates automatically.
 
 ## Requirements
 
 - Windows 64-bit
 - Microsoft Excel for desktop, to use the workbooks you produce
-- Supported files: `.xlsx` and `.xlsm`
+- Supported files: `.xlsx`, `.xlsm` and `.xlam` add-ins
 - For the macro that imports the VBA module: Excel option **Trust access to the VBA project object model** enabled
 
 ## Good to know
@@ -133,10 +156,12 @@ An installable version, signed by Microsoft, is being published on the Microsoft
 - Drag and drop works in the Ribbon structure, not from the palette or in the preview.
 - Right-click menus: some Excel commands can only be hidden by VBA ("VBA" tag). This hiding applies to all of Excel while the workbook is active; the procedures to paste into `ThisWorkbook` are provided at the top of the `RibbonDESIGNER` module.
 - The list of Excel commands in right-click menus was recorded in Excel for Microsoft 365, in French. Excel may show others depending on context and version.
+- In an `.xlam` add-in, `ThisWorkbook` is the add-in itself: the generated code uses the active workbook, and the application flags component code that uses `ThisWorkbook`.
+- The AI assistant does not handle the Backstage, contextual tabs, components or custom images.
 
 ## Versions
 
-Version 1.0.0 is the first stable release. Details of each version are in the [version history](CHANGELOG.en.md).
+The current version is 1.8.1. Details of each version are in the [version history](CHANGELOG.en.md).
 
 ## Questions, suggestions, bugs
 
@@ -144,7 +169,7 @@ Open a ticket in the [Issues](https://github.com/CustomUI-Studio/CustomUI-Studio
 
 ## Privacy
 
-CustomUI Studio does not collect or transmit any data, and works without an Internet connection. See the [privacy policy](CONFIDENTIALITE.en.md).
+CustomUI Studio does not collect or transmit any data, and works without an Internet connection, AI assistant included: you are the one who copies the request into your AI tool. See the [privacy policy](CONFIDENTIALITE.md).
 
 ## Third-party components
 
@@ -152,6 +177,6 @@ XML validation uses libxml2 (MIT license) through xmllint-wasm (MIT license). Th
 
 ## License
 
-Free software (freeware), source code not published. See [LICENCE.txt](LICENCE.en.txt).
+Free software (freeware), source code not published. See [LICENCE.txt](LICENCE.txt) (in French).
 
 © 2026 Régis DEVAUX — All rights reserved.
