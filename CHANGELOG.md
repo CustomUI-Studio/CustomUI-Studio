@@ -2,6 +2,38 @@
 
 La dernière version se télécharge sur la page [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest).
 
+## 1.8.1
+
+Correctif d'affichage. Les projets et les classeurs ne changent pas.
+
+### Corrections
+
+- Quand la fenêtre est étroite, les boutons de l'en-tête et des barres d'outils (module VBA avec plusieurs composants, panneau Propriétés, bibliothèques d'images, catalogue idMso) passent à la ligne au lieu de sortir du cadre ou de se chevaucher. Le bouton « Exporter XML / Enregistrer Office » n'affiche alors que son icône, avec son nom en info-bulle.
+
+## 1.8.0
+
+Mise à jour majeure : projets, composants, modèles, menus clic droit avancés, compléments, traitement par lot et assistant IA. Les classeurs produits avec la 1.0.0 s'ouvrent et s'enregistrent comme avant.
+
+### Nouveautés
+
+- **Projets `.cuis`.** Un ruban s'enregistre indépendamment de tout classeur, se rouvre, puis s'applique au classeur de votre choix (bouton « Appliquer »).
+- **Annuler / rétablir.** Chaque modification s'annule (Ctrl+Z) et se rétablit (Ctrl+Y).
+- **Onglets contextuels et Backstage.** Les onglets qu'Excel affiche pour un tableau, un graphique ou une image se complètent dans l'éditeur, et le menu Fichier (Backstage) se construit élément par élément.
+- **Compatibilité.** Choisissez la version d'Excel visée : chaque commande, icône et menu porte un badge « vérifié », « documenté » ou « inconnu », d'après les listes officielles de Microsoft et des relevés faits dans Excel. Un rapport résume le projet.
+- **Composants et bibliothèque.** Un groupe, un onglet ou un menu se range avec son code VBA dans un composant `.cuic`, réutilisable dans tout projet. Des composants sont fournis.
+- **Modèles métier.** Gestion de stocks, gestion commerciale et tableau de bord, avec leur ruban, leur code VBA et la macro « Préparer le classeur ».
+- **Menus clic droit avancés.** Les 89 menus de la liste officielle de Microsoft ; des entrées affichées seulement là où elles ont un sens (feuille, tableau, colonne, cellule non vide…), avec le code VBA généré ; copie d'une entrée vers d'autres menus ; sous-menus.
+- **Compléments `.xlam`.** Ouverture, modification et enregistrement d'un complément ; code VBA généré adapté au complément ; procédure guidée pour le créer dans Excel.
+- **Appliquer à plusieurs classeurs** (version de bureau). Contrôle préalable de chaque fichier, copies dans un dossier de sortie, rapport CSV ; les originaux ne sont jamais modifiés.
+- **Assistant IA contrôlé.** Décrivez ce que vous voulez : CustomUI Studio prépare une demande pour l'outil d'IA de votre choix, puis vérifie sa réponse avec ses propres règles avant toute modification. L'application ne se connecte à rien et n'envoie rien.
+
+### Corrections
+
+- Un onglet ou un groupe natif d'Excel sans libellé n'est plus renommé à l'export.
+- Un retour à la ligne dans une info-bulle est conservé.
+- Un attribut qu'un contrôle n'accepte pas est signalé au lieu d'être retiré sans prévenir.
+- Un fichier dont l'extension ne correspond pas au contenu (par exemple un `.xlsm` renommé en `.xlam`) est refusé avec une explication, comme le ferait Excel.
+
 ## 1.0.0
 
 Première version stable. Les fonctions sont celles de la 0.8.0.
