@@ -21,7 +21,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.0.0.exe"><b>⬇️ Télécharger CustomUI Studio 1.0.0</b></a>
+  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.8.1.exe"><b>⬇️ Télécharger CustomUI Studio 1.8.1</b></a>
+  · <a href="https://apps.microsoft.com/detail/9PH54K3T7TCT"><b>Microsoft Store</b></a>
 </p>
 
 ![Constructeur visuel de CustomUI Studio](docs/capture-constructeur.png)
@@ -34,7 +35,7 @@ CustomUI Studio règle le problème à la source. Vous construisez le ruban visu
 
 ## En trois étapes
 
-1. **Importez** votre classeur `.xlsx` ou `.xlsm`, ou partez d'un ruban vide.
+1. **Importez** votre classeur `.xlsx`, `.xlsm` ou votre complément `.xlam`, ou partez d'un ruban vide ou d'un modèle.
 2. **Composez** le ruban : ajoutez onglets, groupes et contrôles, choisissez leurs icônes, réglez leurs propriétés. L'aperçu se met à jour en direct.
 3. **Enregistrez** : le ruban est écrit dans le classeur, et le module VBA qui l'accompagne est prêt à importer.
 
@@ -48,13 +49,24 @@ CustomUI Studio règle le problème à la source. Vous construisez le ruban visu
 - **Aperçu en direct, comme dans Excel** : listes, menus et info-bulles se testent au survol.
 - **Icônes** : bibliothèque imageMso classée par catégorie avec recherche, vos propres images, et catalogue des commandes natives d'Excel (Enregistrer, Copier, Somme automatique…). Avec Excel installé, l'aperçu affiche les vraies icônes d'Excel.
 - **Deux formats de ruban** : CustomUI 2006 (Office 2007) et CustomUI 2009 (Office 2010 et versions suivantes).
+- **Onglets contextuels et Backstage** : complétez les onglets qu'Excel affiche pour un tableau, un graphique ou une image, et construisez le menu Fichier (Backstage) dans l'éditeur.
+- **Annuler / rétablir** (Ctrl+Z, Ctrl+Y) pour chaque modification.
+- **Compatibilité affichée** : pour la version d'Excel visée, chaque commande, icône et menu porte un badge « vérifié », « documenté » ou « inconnu », et un rapport résume le projet.
 - **En français ou en anglais** : la langue se choisit au premier lancement et se change à tout moment.
 
 ![Aperçu du ruban en direct](docs/apercu-ruban.png)
 
+### Projets, composants et modèles
+
+- **Projets `.cuis`** : enregistrez un ruban indépendamment de tout classeur, rouvrez-le, puis appliquez-le au classeur de votre choix.
+- **Composants réutilisables `.cuic`** : un groupe, un onglet ou un menu avec son code VBA, à insérer dans n'importe quel projet. Une bibliothèque locale les range, et plusieurs composants sont fournis (export PDF, navigation entre feuilles…).
+- **Modèles prêts à l'emploi** : gestion de stocks, gestion commerciale, tableau de bord, avec leur ruban, leur code VBA et la macro « Préparer le classeur », qui crée les feuilles et les tableaux attendus sans toucher à l'existant.
+
 ### Menus clic droit
 
-- **Vos commandes dans le clic droit d'Excel** : cellule, en-tête de ligne ou de colonne, tableau, tableau croisé dynamique, forme. Vous les placez avant ou après une commande d'Excel.
+- **Vos commandes dans le clic droit d'Excel** : les 89 menus de la liste officielle de Microsoft (cellule, ligne, colonne, tableau, onglet de feuille, graphiques, formes, segments…). Vous les placez avant ou après une commande d'Excel.
+- **Entrées affichées seulement quand elles ont un sens** : sur telle feuille, dans tel tableau ou telle colonne, sur une cellule non vide… Le code VBA des conditions est généré pour vous.
+- **Copier une entrée vers d'autres menus** et la ranger dans des sous-menus.
 - **Masquer les commandes d'Excel en un clic** : pour la cellule, la ligne, la colonne et le tableau, cochez les commandes à garder ou appliquez un préréglage (« Menu minimal », « Sans copier-coller »…).
 - **Aperçu fidèle** : le menu s'affiche tel qu'Excel le montrera.
 - Les commandes que le ruban ne peut pas masquer le sont par VBA, avec les procédures générées pour vous.
@@ -73,11 +85,22 @@ Les menus clic droit demandent le format CustomUI 2009.
   SetControlState "btnExporter", "enabled", False
   ```
 
+### Compléments et traitement par lot
+
+- **Compléments Excel `.xlam`** : ouvrez, modifiez et réenregistrez un complément ; le code VBA généré s'adapte (il agit sur le classeur actif). Une procédure guidée explique comment créer le complément dans Excel.
+- **Appliquer à plusieurs classeurs** (version de bureau) : choisissez des classeurs ou un dossier, contrôlez-les avant d'écrire, et obtenez des copies dans un dossier de sortie et un rapport CSV. Les originaux ne sont jamais modifiés.
+
+### Assistant IA contrôlé
+
+- **Décrivez ce que vous voulez** : l'application prépare une demande à coller dans l'outil d'IA de votre choix, puis vérifie sa réponse avant toute modification.
+- **Rien n'est inventé** : un attribut, un contrôle ou une commande que le format ne connaît pas est refusé ; chaque changement est présenté, les suppressions sont confirmées, et « Annuler » revient en arrière en une étape.
+- **Aucune connexion** : CustomUI Studio n'envoie rien. Le code VBA, les images et les noms de fichiers ne figurent jamais dans la demande.
+
 ### Contrôle avant l'enregistrement
 
 - **Vérification avec les schémas de Microsoft**, hors ligne : l'éditeur XML liste chaque problème avec sa ligne, une explication claire et la correction à faire.
 - **Enregistrement bloqué tant qu'il reste une erreur** : attribut inconnu ou vide, identifiant répété, contrôle mal placé, ordre incorrect…
-- **Éditeur XML synchronisé** avec l'interface. Les parties non gérées visuellement (Backstage, onglets contextuels) sont conservées telles quelles.
+- **Éditeur XML synchronisé** avec l'interface.
 
 ![Éditeur XML et panneau Problèmes](docs/capture-editeur-xml.png)
 
@@ -94,7 +117,7 @@ Quand vous cliquez sur **Enregistrer Office**, votre classeur n'est pas reconstr
 
 ### Version portable
 
-1. Téléchargez [`CustomUI.Studio.1.0.0.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.0.0.exe) depuis la page [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest).
+1. Téléchargez [`CustomUI.Studio.1.8.1.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.8.1.exe) depuis la page [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest).
 2. Double-cliquez dessus. Aucune installation n'est nécessaire.
 
 > **Message « Windows a protégé votre ordinateur » ?**
@@ -105,29 +128,29 @@ Quand vous cliquez sur **Enregistrer Office**, votre classeur n'est pas reconstr
 
 <br>
 
-Empreinte SHA-256 de `CustomUI.Studio.1.0.0.exe` :
+Empreinte SHA-256 de `CustomUI.Studio.1.8.1.exe` :
 
 ```
-bf1e050d78f5d59f764fc5e34be550746cb8a4711cd5d47ab9c8e45841e4a93f
+ce4337e368ffd5d3b43b185bebf50ecb6115e1346efc208aceb255758168ab92
 ```
 
 Pour la vérifier, dans PowerShell :
 
 ```powershell
-Get-FileHash .\CustomUI.Studio.1.0.0.exe -Algorithm SHA256
+Get-FileHash .\CustomUI.Studio.1.8.1.exe -Algorithm SHA256
 ```
 
 </details>
 
 ### Microsoft Store
 
-Une version installable, signée par Microsoft, est en cours de publication sur le Microsoft Store. Le lien sera ajouté ici dès qu'elle sera disponible.
+CustomUI Studio est disponible sur le [Microsoft Store](https://apps.microsoft.com/detail/9PH54K3T7TCT). La version du Store est signée par Microsoft, s'installe sans avertissement Windows et se met à jour automatiquement.
 
 ## Configuration requise
 
 - Windows 64 bits
 - Microsoft Excel de bureau, pour utiliser les classeurs produits
-- Fichiers pris en charge : `.xlsx` et `.xlsm`
+- Fichiers pris en charge : `.xlsx`, `.xlsm` et compléments `.xlam`
 - Pour la macro d'import du module VBA : option Excel **Accès approuvé au modèle d'objet du projet VBA** activée
 
 ## Bon à savoir
@@ -139,10 +162,12 @@ Une version installable, signée par Microsoft, est en cours de publication sur 
 - Menus clic droit : certaines commandes d'Excel ne se masquent que par VBA (étiquette « VBA »). Ce masquage agit sur tout Excel tant que le classeur est actif ; les procédures à coller dans `ThisWorkbook` sont fournies en tête du module `RibbonDESIGNER`.
 - La liste des commandes d'Excel des menus clic droit a été relevée dans Excel pour Microsoft 365, en français. Excel peut en afficher d'autres selon le contexte et la version.
 - En anglais, les noms des commandes d'Excel des menus clic droit et le module VBA généré restent en français.
+- Dans un complément `.xlam`, `ThisWorkbook` désigne le complément lui-même : le code généré utilise le classeur actif, et l'application signale le code des composants qui utilise `ThisWorkbook`.
+- L'assistant IA ne gère pas le Backstage, les onglets contextuels, les composants ni les images personnalisées.
 
 ## Versions
 
-La version 1.0.0 est la première version stable. Le détail de chaque version est dans l'[historique des versions](CHANGELOG.md).
+La version actuelle est la 1.8.1. Le détail de chaque version est dans l'[historique des versions](CHANGELOG.md).
 
 ## Questions, suggestions, bugs
 
@@ -150,7 +175,7 @@ Ouvrez un ticket dans l'onglet [Issues](https://github.com/CustomUI-Studio/Custo
 
 ## Confidentialité
 
-CustomUI Studio ne collecte et ne transmet aucune donnée, et fonctionne sans connexion à Internet. Voir la [politique de confidentialité](CONFIDENTIALITE.md).
+CustomUI Studio ne collecte et ne transmet aucune donnée, et fonctionne sans connexion à Internet, assistant IA compris : c'est vous qui copiez la demande dans votre outil d'IA. Voir la [politique de confidentialité](CONFIDENTIALITE.md).
 
 ## Composants tiers
 
