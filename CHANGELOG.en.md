@@ -2,6 +2,38 @@
 
 The latest version can be downloaded from the [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest) page.
 
+## 1.8.1
+
+Display fix. Projects and workbooks are unchanged.
+
+### Fixes
+
+- When the window is narrow, the buttons of the header and toolbars (VBA module with several components, Properties panel, image libraries, idMso catalog) wrap to a new line instead of going out of frame or overlapping. The "Export XML / Save Office" button then shows only its icon, with its name as a tooltip.
+
+## 1.8.0
+
+Major update: projects, components, templates, advanced right-click menus, add-ins, batch processing and an AI assistant. Workbooks produced with 1.0.0 open and save as before.
+
+### What's new
+
+- **`.cuis` projects.** A ribbon can be saved independently of any workbook, reopened, then applied to the workbook of your choice ("Apply" button).
+- **Undo / redo.** Every change can be undone (Ctrl+Z) and redone (Ctrl+Y).
+- **Contextual tabs and Backstage.** The tabs Excel shows for a table, a chart or a picture can be extended in the editor, and the File menu (Backstage) is built element by element.
+- **Compatibility.** Choose the targeted Excel version: each command, icon and menu has a "verified", "documented" or "unknown" badge, based on Microsoft's official lists and on checks made in Excel. A report sums up the project.
+- **Components and library.** A group, a tab or a menu is stored with its VBA code in a `.cuic` component, reusable in any project. Components are provided.
+- **Business templates.** Inventory, sales management and dashboard, with their ribbon, VBA code and the "Prepare the workbook" macro.
+- **Advanced right-click menus.** The 89 menus of Microsoft's official list; entries shown only where they make sense (sheet, table, column, non-empty cell…), with generated VBA code; copying an entry to other menus; submenus.
+- **`.xlam` add-ins.** Opening, editing and saving an add-in; generated VBA code adapted to add-ins; guided procedure to create one in Excel.
+- **Apply to several workbooks** (desktop version). Each file is checked first, copies go to an output folder, with a CSV report; originals are never modified.
+- **Controlled AI assistant.** Describe what you want: CustomUI Studio prepares a request for the AI tool of your choice, then checks its answer with its own rules before any change. The application connects to nothing and sends nothing.
+
+### Fixes
+
+- A native Excel tab or group without a label is no longer renamed on export.
+- A line break in a tooltip is kept.
+- An attribute a control does not accept is reported instead of being silently dropped.
+- A file whose extension does not match its content (for example an `.xlsm` renamed to `.xlam`) is refused with an explanation, as Excel would.
+
 ## 1.0.0
 
 First stable release. Includes the same features as version 0.8.0.
