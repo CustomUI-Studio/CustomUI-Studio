@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.8.1.exe"><b>⬇️ Télécharger CustomUI Studio 1.8.1</b></a>
+  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.9.0.exe"><b>⬇️ Télécharger CustomUI Studio 1.9.0</b></a>
   · <a href="https://apps.microsoft.com/detail/9PH54K3T7TCT"><b>Microsoft Store</b></a>
 </p>
 
@@ -49,7 +49,7 @@ CustomUI Studio règle le problème à la source. Vous construisez le ruban visu
 - **Aperçu en direct, comme dans Excel** : listes, menus et info-bulles se testent au survol.
 - **Icônes** : bibliothèque imageMso classée par catégorie avec recherche, vos propres images, et catalogue des commandes natives d'Excel (Enregistrer, Copier, Somme automatique…). Avec Excel installé, l'aperçu affiche les vraies icônes d'Excel.
 - **Deux formats de ruban** : CustomUI 2006 (Office 2007) et CustomUI 2009 (Office 2010 et versions suivantes).
-- **Onglets contextuels et Backstage** : complétez les onglets qu'Excel affiche pour un tableau, un graphique ou une image, et construisez le menu Fichier (Backstage) dans l'éditeur.
+- **Onglets contextuels et Backstage** : complétez les onglets qu'Excel affiche pour un tableau, un graphique ou une image, et construisez le menu Fichier (Backstage) dans l'éditeur, avec un aperçu proche d'Excel 365 : commandes d'Excel, masquages, renommages et place de chaque élément ajouté. Un menu Fichier se range aussi dans la bibliothèque comme composant ; le composant « Backstage – Administration » est fourni.
 - **Annuler / rétablir** (Ctrl+Z, Ctrl+Y) pour chaque modification.
 - **Compatibilité affichée** : pour la version d'Excel visée, chaque commande, icône et menu porte un badge « vérifié », « documenté » ou « inconnu », et un rapport résume le projet.
 - **En français ou en anglais** : la langue se choisit au premier lancement et se change à tout moment.
@@ -117,7 +117,7 @@ Quand vous cliquez sur **Enregistrer Office**, votre classeur n'est pas reconstr
 
 ### Version portable
 
-1. Téléchargez [`CustomUI.Studio.1.8.1.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.8.1.exe) depuis la page [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest).
+1. Téléchargez [`CustomUI.Studio.1.9.0.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.9.0.exe) depuis la page [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest).
 2. Double-cliquez dessus. Aucune installation n'est nécessaire.
 
 > **Message « Windows a protégé votre ordinateur » ?**
@@ -128,16 +128,16 @@ Quand vous cliquez sur **Enregistrer Office**, votre classeur n'est pas reconstr
 
 <br>
 
-Empreinte SHA-256 de `CustomUI.Studio.1.8.1.exe` :
+Empreinte SHA-256 de `CustomUI.Studio.1.9.0.exe` :
 
 ```
-ce4337e368ffd5d3b43b185bebf50ecb6115e1346efc208aceb255758168ab92
+70ec4b7764d06d04a792fe4f82a0de2b1578ac9ab6a5b28cf89e1df986fdd9b0
 ```
 
 Pour la vérifier, dans PowerShell :
 
 ```powershell
-Get-FileHash .\CustomUI.Studio.1.8.1.exe -Algorithm SHA256
+Get-FileHash .\CustomUI.Studio.1.9.0.exe -Algorithm SHA256
 ```
 
 </details>
@@ -167,7 +167,7 @@ CustomUI Studio est disponible sur le [Microsoft Store](https://apps.microsoft.c
 
 ## Versions
 
-La version actuelle est la 1.8.1. Le détail de chaque version est dans l'[historique des versions](CHANGELOG.md).
+La version actuelle est la 1.9.0. Le détail de chaque version est dans l'[historique des versions](CHANGELOG.md).
 
 ## Questions, suggestions, bugs
 
