@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.8.1.exe"><b>⬇️ Download CustomUI Studio 1.8.1</b></a>
+  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.9.0.exe"><b>⬇️ Download CustomUI Studio 1.9.0</b></a>
   · <a href="https://apps.microsoft.com/detail/9PH54K3T7TCT"><b>Microsoft Store</b></a>
 </p>
 
@@ -49,7 +49,7 @@ CustomUI Studio fixes the problem at the source. You build the ribbon visually, 
 - **Live preview, as in Excel**: lists, menus and tooltips can be tried on hover.
 - **Icons**: imageMso library sorted by category with search, your own images, and a catalog of native Excel commands (Save, Copy, AutoSum…). With Excel installed, the preview shows the real Excel icons.
 - **Two ribbon formats**: CustomUI 2006 (Office 2007) and CustomUI 2009 (Office 2010 and later).
-- **Contextual tabs and Backstage**: extend the tabs Excel shows for a table, a chart or a picture, and build the File menu (Backstage) in the editor.
+- **Contextual tabs and Backstage**: extend the tabs Excel shows for a table, a chart or a picture, and build the File menu (Backstage) in the editor, with a preview close to Excel 365: Excel commands, hidden and renamed commands, and where each added item goes. A File menu can also be stored in the library as a component; the "Backstage – Administration" component is provided.
 - **Undo / redo** (Ctrl+Z, Ctrl+Y) for every change.
 - **Compatibility shown**: for the targeted Excel version, each command, icon and menu has a "verified", "documented" or "unknown" badge, and a report sums up the project.
 - **In French or English**: the language is chosen at first launch and can be changed at any time.
@@ -111,7 +111,7 @@ When you click **Save to Office**, your workbook is not rebuilt:
 
 ### Portable version
 
-1. Download [`CustomUI.Studio.1.8.1.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.8.1.exe) from the [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest) page.
+1. Download [`CustomUI.Studio.1.9.0.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.9.0.exe) from the [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest) page.
 2. Double-click it. No installation is needed.
 
 > **"Windows protected your PC" message?**
@@ -122,16 +122,16 @@ When you click **Save to Office**, your workbook is not rebuilt:
 
 <br>
 
-SHA-256 hash of `CustomUI.Studio.1.8.1.exe`:
+SHA-256 hash of `CustomUI.Studio.1.9.0.exe`:
 
 ```
-ce4337e368ffd5d3b43b185bebf50ecb6115e1346efc208aceb255758168ab92
+70ec4b7764d06d04a792fe4f82a0de2b1578ac9ab6a5b28cf89e1df986fdd9b0
 ```
 
 To check it, in PowerShell:
 
 ```powershell
-Get-FileHash .\CustomUI.Studio.1.8.1.exe -Algorithm SHA256
+Get-FileHash .\CustomUI.Studio.1.9.0.exe -Algorithm SHA256
 ```
 
 </details>
@@ -161,7 +161,7 @@ CustomUI Studio is available on the [Microsoft Store](https://apps.microsoft.com
 
 ## Versions
 
-The current version is 1.8.1. Details of each version are in the [version history](CHANGELOG.en.md).
+The current version is 1.9.0. Details of each version are in the [version history](CHANGELOG.en.md).
 
 ## Questions, suggestions, bugs
 
