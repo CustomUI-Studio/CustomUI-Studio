@@ -2,6 +2,30 @@
 
 La dernière version se télécharge sur la page [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest).
 
+## 1.9.0
+
+Backstage (menu Fichier) dans la bibliothèque, et aperçu du menu Fichier au plus près d'Excel. Les projets et les classeurs des versions précédentes s'ouvrent et s'enregistrent comme avant.
+
+### Nouveautés
+
+- **Aperçu du menu Fichier proche d'Excel 365.** La liste de gauche reprend celle d'Excel (Accueil, Nouveau, Ouvrir, Informations… Compte, Options) : les commandes masquées disparaissent, les commandes renommées prennent leur nouveau nom, et chaque élément ajouté se place à l'endroit où Excel le met (avant ou après une commande d'Excel, sinon en bas de la liste). La page affiche les groupes, le grand bouton principal, les cases, listes et boutons radio avec les couleurs et la disposition d'Excel. Ordre, couleurs et proportions ont été relevés dans Excel.
+- **Backstage dans la bibliothèque.** Le menu Fichier d'un projet s'enregistre comme composant `.cuic`, avec son code VBA, et s'insère dans un autre projet. L'insertion renomme les identifiants et les callbacks avec un préfixe, ne touche jamais les commandes d'Excel, et refuse ce qui entrerait en conflit (deux réglages d'une même commande d'Excel, un second callback `onShow`).
+- **Composant fourni « Backstage – Administration ».** Une page « Administration » placée après « Informations » (options d'export, nom du validateur, format de sortie, serveur cible, état du classeur) et une commande rapide « Synchroniser », vérifiées dans Excel avec leur code VBA.
+- **Commandes du menu Fichier vérifiées.** Les identifiants des commandes d'Excel du menu Fichier (Accueil `PlaceTabHome`, Informations `TabInfo`, Enregistrer sous `TabSave`, Compte `TabHelp`, Options `ApplicationOptionsDialog`…) portent désormais le badge « vérifié ».
+
+### Corrections
+
+- Un projet sans onglet de ruban (Backstage seul) produisait un XML refusé par Excel ; il est maintenant valide.
+- L'aperçu du menu Fichier se réduit pour tenir entièrement dans une fenêtre étroite.
+
+### Simplification
+
+- Le choix de la plateforme visée (« Windows / Autre ») est retiré de la barre de l'aperçu : la compatibilité est évaluée pour Excel sous Windows, la seule plateforme vérifiée. Les projets qui précisaient une autre plateforme s'ouvrent comme avant.
+
+### Compatibilité
+
+- Un fichier `.cuic` de Backstage, ou un projet `.cuis` qui en contient un, ne s'ouvre pas dans les versions antérieures à la 1.9.0 : elles indiquent qu'il a été créé par une version plus récente. Les autres fichiers restent lisibles par la 1.8.
+
 ## 1.8.1
 
 Correctif d'affichage. Les projets et les classeurs ne changent pas.
