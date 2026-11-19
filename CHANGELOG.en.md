@@ -2,6 +2,30 @@
 
 The latest version can be downloaded from the [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest) page.
 
+## 1.9.0
+
+Backstage (File menu) in the library, and a File menu preview as close as possible to Excel. Projects and workbooks from previous versions open and save as before.
+
+### What's new
+
+- **File menu preview close to Excel 365.** The left-hand list follows Excel's (Home, New, Open, Info… Account, Options): hidden commands disappear, renamed commands show their new name, and each added item sits where Excel puts it (before or after an Excel command, otherwise at the bottom of the list). The page shows groups, the large primary button, check boxes, lists and option buttons with Excel's colors and layout. Order, colors and proportions were measured in Excel.
+- **Backstage in the library.** A project's File menu can be saved as a `.cuic` component, with its VBA code, and inserted into another project. Insertion prefixes identifiers and callbacks, never touches Excel commands, and refuses anything that would conflict (two settings of the same Excel command, a second `onShow` callback).
+- **Provided "Backstage – Administration" component.** An "Administration" page placed after "Info" (export options, approver name, output format, target server, workbook status) and a "Synchronize" quick command, checked in Excel with their VBA code.
+- **File menu commands verified.** The identifiers of Excel's File menu commands (Home `PlaceTabHome`, Info `TabInfo`, Save As `TabSave`, Account `TabHelp`, Options `ApplicationOptionsDialog`…) now carry the "verified" badge.
+
+### Fixes
+
+- A project without any ribbon tab (Backstage only) produced XML that Excel rejected; it is now valid.
+- The File menu preview shrinks to fit entirely in a narrow window.
+
+### Simplification
+
+- The target platform choice ("Windows / Other") is removed from the preview bar: compatibility is assessed for Excel on Windows, the only verified platform. Projects that specified another platform open as before.
+
+### Compatibility
+
+- A Backstage `.cuic` file, or a `.cuis` project containing one, does not open in versions earlier than 1.9.0: they report that it was created by a newer version. Other files remain readable by 1.8.
+
 ## 1.8.1
 
 Display fix. Projects and workbooks are unchanged.
