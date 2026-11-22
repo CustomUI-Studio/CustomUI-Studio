@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.9.0.exe"><b>⬇️ Download CustomUI Studio 1.9.0</b></a>
+  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.18.0.exe"><b>⬇️ Download CustomUI Studio 1.18.0</b></a>
   · <a href="https://apps.microsoft.com/detail/9PH54K3T7TCT"><b>Microsoft Store</b></a>
 </p>
 
@@ -46,10 +46,14 @@ CustomUI Studio fixes the problem at the source. You build the ribbon visually, 
 - **All the usual controls**: buttons, toggle buttons, check boxes, edit boxes, drop-downs, combo boxes, galleries, menus, dynamic menus, split buttons.
 - **Only allowed elements are offered**: you cannot build a ribbon that Excel would reject. The order required by the format is applied automatically.
 - **Drag and drop**: reorder tabs, groups and controls with the mouse in the Ribbon structure.
+- **Duplicate, copy, paste** (Ctrl+D, Ctrl+C, Ctrl+V) a tab, a group or a control, also from one project to another: the copy gets its own identifiers and its own VBA procedures.
 - **Live preview, as in Excel**: lists, menus and tooltips can be tried on hover.
 - **Icons**: imageMso library sorted by category with search, your own images, and a catalog of native Excel commands (Save, Copy, AutoSum…). With Excel installed, the preview shows the real Excel icons.
 - **Two ribbon formats**: CustomUI 2006 (Office 2007) and CustomUI 2009 (Office 2010 and later).
 - **Contextual tabs and Backstage**: extend the tabs Excel shows for a table, a chart or a picture, and build the File menu (Backstage) in the editor, with a preview close to Excel 365: Excel commands, hidden and renamed commands, and where each added item goes. A File menu can also be stored in the library as a component; the "Backstage – Administration" component is provided.
+- **Quick Access Toolbar**: add Excel commands, your own buttons and separators, shown while the workbook is active (or in all workbooks for an `.xlam` add-in). The application reminds you what Excel requires (`startFromScratch`) and offers to keep Undo and Redo, which the workbook's toolbar replaces.
+- **Excel tabs and groups**: add your groups to Home or another Excel tab, hide an Excel tab or group, copy any Excel group into your tab (every group of every tab, drawn in the preview as in Excel), and place your tabs and groups before or after Excel's. Keytips and display settings (greyed out, image only, gallery columns…) in the inspector.
+- **Workbook display**: hide the formula bar, status bar, ribbon, sheet tabs, headings or gridlines, and give the window a title; the generated VBA code applies these settings and gives back to Excel what affects every workbook when yours loses focus.
 - **Undo / redo** (Ctrl+Z, Ctrl+Y) for every change.
 - **Compatibility shown**: for the targeted Excel version, each command, icon and menu has a "verified", "documented" or "unknown" badge, and a report sums up the project.
 - **In French or English**: the language is chosen at first launch and can be changed at any time.
@@ -75,6 +79,7 @@ Right-click menus require the CustomUI 2009 format.
 
 - **Ready-to-use `RibbonDESIGNER` module**: every callback has the right signature, with examples in comments.
 - **Import with one macro**: `ImporterModuleRibbonDESIGNER` adds the module to your VBA project, without duplicates.
+- **"Apply to a new workbook…" and a "Finish in Excel" guide**: the application creates the workbook, then shows the remaining steps (import the modules, paste a snippet, reopen). In the desktop version, the modules are saved next to the workbook and a button opens it in Excel.
 - **Ribbon driven by your macros**: tick the properties of a control that must be able to change (label, grayed out, hidden, image…), then a single line is enough:
 
   ```vb
@@ -89,6 +94,7 @@ Right-click menus require the CustomUI 2009 format.
 ### Controlled AI assistant
 
 - **Describe what you want**: the application prepares a request to paste into the AI tool of your choice, then checks its answer before any change.
+- **Three targets**: the ribbon and its right-click menus, a contextual tab (you choose the set: table, chart, picture…) or the File menu (Backstage), whose list the assistant shows as Excel will display it. A request covers a single target.
 - **Nothing is invented**: an attribute, control or command the format does not know is refused; each change is shown, removals are confirmed, and "Undo" goes back in one step.
 - **No connection**: CustomUI Studio sends nothing. VBA code, images and file names are never included in the request.
 
@@ -96,6 +102,7 @@ Right-click menus require the CustomUI 2009 format.
 
 - **Validation against Microsoft's schemas**, offline: the XML editor lists each problem with its line, a clear explanation and the fix to apply.
 - **Saving is blocked while an error remains**: unknown or empty attribute, duplicate identifier, misplaced control, wrong order…
+- **"Problems" panel in the Visual builder**: errors show while you build; a click selects the element.
 - **XML editor kept in sync** with the interface.
 
 ## Your workbook is respected
@@ -111,7 +118,7 @@ When you click **Save to Office**, your workbook is not rebuilt:
 
 ### Portable version
 
-1. Download [`CustomUI.Studio.1.9.0.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.9.0.exe) from the [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest) page.
+1. Download [`CustomUI.Studio.1.18.0.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.18.0.exe) from the [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest) page.
 2. Double-click it. No installation is needed.
 
 > **"Windows protected your PC" message?**
@@ -122,16 +129,16 @@ When you click **Save to Office**, your workbook is not rebuilt:
 
 <br>
 
-SHA-256 hash of `CustomUI.Studio.1.9.0.exe`:
+SHA-256 hash of `CustomUI.Studio.1.18.0.exe`:
 
 ```
-70ec4b7764d06d04a792fe4f82a0de2b1578ac9ab6a5b28cf89e1df986fdd9b0
+cecf15c36ef918ce0c3845e04f0ff0372f71bf7be7439e7fce813753e60cf1bc
 ```
 
 To check it, in PowerShell:
 
 ```powershell
-Get-FileHash .\CustomUI.Studio.1.9.0.exe -Algorithm SHA256
+Get-FileHash .\CustomUI.Studio.1.18.0.exe -Algorithm SHA256
 ```
 
 </details>
@@ -157,11 +164,11 @@ CustomUI Studio is available on the [Microsoft Store](https://apps.microsoft.com
 - Right-click menus: some Excel commands can only be hidden by VBA ("VBA" tag). This hiding applies to all of Excel while the workbook is active; the procedures to paste into `ThisWorkbook` are provided at the top of the `RibbonDESIGNER` module.
 - The list of Excel commands in right-click menus was recorded in Excel for Microsoft 365, in French. Excel may show others depending on context and version.
 - In an `.xlam` add-in, `ThisWorkbook` is the add-in itself: the generated code uses the active workbook, and the application flags component code that uses `ThisWorkbook`.
-- The AI assistant does not handle the Backstage, contextual tabs, components or custom images.
+- The AI assistant does not handle library components or custom images; in the File menu, it only sets the 13 Excel commands recorded in Excel for Microsoft 365.
 
 ## Versions
 
-The current version is 1.9.0. Details of each version are in the [version history](CHANGELOG.en.md).
+The current version is 1.18.0. Details of each version are in the [version history](CHANGELOG.en.md).
 
 ## Questions, suggestions, bugs
 
