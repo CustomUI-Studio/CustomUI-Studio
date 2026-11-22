@@ -25,7 +25,7 @@
   · <a href="https://apps.microsoft.com/detail/9PH54K3T7TCT"><b>Microsoft Store</b></a>
 </p>
 
-![CustomUI Studio visual builder](docs/capture-constructeur-en.png)
+![CustomUI Studio visual builder](docs/capture-constructeur.en.png)
 
 ## Why CustomUI Studio?
 
@@ -176,7 +176,7 @@ Open a ticket in the [Issues](https://github.com/CustomUI-Studio/CustomUI-Studio
 
 ## Privacy
 
-CustomUI Studio does not collect or transmit any data, and works without an Internet connection, AI assistant included: you are the one who copies the request into your AI tool. See the [privacy policy](CONFIDENTIALITE.md).
+CustomUI Studio does not collect or transmit any data, and works without an Internet connection, AI assistant included: you are the one who copies the request into your AI tool. See the [privacy policy](CONFIDENTIALITE.en.md).
 
 ## Third-party components
 
@@ -184,6 +184,6 @@ XML validation uses libxml2 (MIT license) through xmllint-wasm (MIT license). Th
 
 ## License
 
-Free software (freeware), source code not published. See [LICENCE.txt](LICENCE.txt) (in French).
+Free software (freeware), source code not published. See [LICENCE.en.txt](LICENCE.en.txt).
 
 © 2026 Régis DEVAUX — All rights reserved.
