@@ -2,6 +2,127 @@
 
 La dernière version se télécharge sur la page [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest).
 
+## 1.18.0
+
+Construire un ruban de bout en bout depuis l'application. Les projets et les classeurs des versions précédentes s'ouvrent et s'enregistrent comme avant.
+
+### Nouveautés
+
+- **Panneau « Problèmes » dans le Constructeur visuel**, sous l'aperçu : erreurs et avertissements du ruban pendant la construction, avec les règles de l'enregistrement. Un clic sélectionne l'élément concerné ; un problème sans élément ouvre l'Éditeur XML sur la bonne ligne. Pastilles dans l'arbre et encadré « Problèmes de cet élément » dans l'inspecteur.
+- **Dupliquer, copier et coller** un onglet, un groupe ou un contrôle (barre de l'inspecteur, Ctrl+D, Ctrl+C, Ctrl+V), aussi d'un projet à l'autre. Identifiants libres (`<id>_2`) ; les procédures VBA dérivées de l'identifiant sont renommées, les procédures partagées restent communes ; le raccourci clavier (`keytip`) n'est pas copié.
+- **« Appliquer à un nouveau classeur… »** : classeur vierge (`.xlsm` si le ruban appelle des macros, sinon `.xlsx`) qui reçoit le ruban du projet.
+- **Guide « Terminer dans Excel »** après chaque « Appliquer », rouvrable depuis le panneau Callbacks VBA : seulement les étapes utiles au projet. Dans l'application de bureau, modules VBA enregistrés à côté du classeur (jamais remplacés sans confirmation) et bouton « Ouvrir dans Excel ».
+
+### À savoir
+
+- CustomUI Studio ne modifie toujours jamais le code VBA d'un classeur : les modules s'importent dans Excel.
+- Dans un `.xlsm` neuf, tant que les modules ne sont pas importés, Excel signale à l'ouverture qu'il ne peut pas exécuter la macro `CustomUI_OnLoad` : cliquer OK, puis importer les modules.
+
+## 1.15.0
+
+Un champ pour chaque attribut utile du schéma de Microsoft. Les projets et les classeurs des versions précédentes s'ouvrent et s'enregistrent comme avant.
+
+### Nouveautés
+
+- **Onglets** (personnalisés et contextuels) : visibilité (`visible`), callbacks `getVisible`, `getLabel` et `getKeytip`, étiquette (`tag`). Le libellé et la visibilité se pilotent aussi par une macro avec `SetControlState`, comme pour un contrôle.
+- **Groupes** : icône du groupe replié (`imageMso` ou image du classeur), réduction automatique des grands boutons quand la fenêtre rétrécit (`autoScale`), centrage vertical (`centerVertically`), visibilité et étiquette. Libellé et visibilité pilotables par `SetControlState`.
+- **Bouton d'un lanceur de boîte de dialogue** : état actif, callbacks (`getEnabled`, `getVisible`…), raccourci clavier, affichage et étiquette.
+- **Galerie et liste modifiable** : actualisation à chaque ouverture (`invalidateContentOnDrop`) ; galerie : `showInRibbon` ; séparateur de menu : titre.
+- **Réaffectation des commandes d'Office** (`<commands>`) à l'écran : nouvelle section « Commandes Office (réaffectation) » ; une commande d'Excel peut être grisée (`enabled`, `getEnabled`) ou remplacée par une macro quand elle est lancée depuis le ruban (`onAction`).
+- **« Autres attributs du schéma »** : tout attribut permis à cet endroit sans champ dédié reste saisissable.
+
+### Corrections
+
+- Les champs que le schéma ne permet pas à cet endroit ne sont plus proposés (saisie perdue jusqu'ici) : libellé du bouton fractionné (il se règle sur son bouton), idMso, visibilité et image du lanceur de boîte de dialogue, des séparateurs et des conteneurs.
+- Un onglet personnalisé n'apparaît plus barré dans l'arbre quand `startFromScratch` vaut `true`.
+- Un contrôle Office sans `idMso` bloque l'enregistrement : Excel l'ignorait en affichant « ID manquant ».
+
+## 1.14.1
+
+Correctif de l'aperçu du Backstage et du format d'un classeur ouvert. Les projets et les classeurs ne changent pas.
+
+### Corrections
+
+- **Aperçu du Backstage.** Les colonnes ne se chevauchent plus : comme dans Excel, une colonne s'élargit selon son contenu, la deuxième commence après la première et la page défile horizontalement si besoin.
+- **Format du classeur ouvert.** À l'ouverture d'un classeur `.xlsm` ou `.xlam`, son format devient celui du projet : la liste « Format » l'affiche (grisée, « — classeur ouvert ») et, pour un complément `.xlam`, le module RibbonDESIGNER est généré en mode complément. Un classeur `.xlsx` ne change pas le format du projet.
+
+### Amélioration
+
+- **Panneau Propriétés repliable** pour laisser plus de place à l'aperçu ; son état est mémorisé. Marges réduites autour de l'aperçu.
+
+## 1.14.0
+
+Réglages d'affichage du classeur générés en VBA. Les projets et les classeurs des versions précédentes s'ouvrent et s'enregistrent comme avant.
+
+### Nouveautés
+
+- **Affichage du classeur.** Nouvelle section du panneau « Callbacks VBA » : barre de formule, barre d'état, ruban entier, onglets de feuilles, barres de défilement, en-têtes, quadrillage (« ne pas toucher », « masquer » ou « afficher ») et titre de la fenêtre. La portée de chaque réglage est indiquée : tout Excel, ce classeur ou toutes les feuilles. Rien n'est écrit dans le XML du ruban.
+- **Code généré.** Le module RibbonDESIGNER applique les réglages à l'ouverture (`AppliquerAffichage`) et rend à Excel ce qui agit sur tout Excel quand un autre classeur devient actif ou que le classeur se ferme (`RestaurerAffichage`). Un bouton copie l'extrait à coller dans ThisWorkbook ; avec l'option CommandBars, un seul extrait couvre les deux.
+- **Complément (.xlam).** Seuls les réglages qui agissent sur tout Excel sont proposés (un complément n'a pas de fenêtre).
+- Comportements relevés dans Excel pour Microsoft 365, puis vérifiés sur un classeur construit par l'application.
+
+## 1.13.0
+
+Tous les groupes d'Excel, et un aperçu qui les dessine comme Excel. Les projets et les classeurs des versions précédentes s'ouvrent et s'enregistrent comme avant.
+
+### Nouveautés
+
+- **Tous les groupes d'Excel.** La liste « Copier un groupe d'Excel dans cet onglet » propose maintenant les groupes de tous les onglets (Insertion, Formules, Données, Affichage…), classés par onglet dans l'ordre d'Excel, puis les autres groupes documentés par Microsoft pour la version d'Excel visée. Les positions « avant / après » proposent tous les groupes de l'onglet.
+- **Aperçu fidèle.** Les groupes d'Excel sont dessinés avec leurs vrais boutons, listes et cases à cocher, à leur place et à leur taille ; dans l'application de bureau, avec les icônes d'Excel. Le bouton « Alt » affiche aussi les raccourcis d'Excel.
+- Ruban relevé dans Excel pour Microsoft 365 ; chacun des groupes proposés comme vérifiés a été copié dans un onglet et affiché par Excel.
+
+## 1.12.0
+
+Onglets et groupes d'Excel dans l'éditeur visuel, raccourcis clavier et réglages d'affichage. Les projets et les classeurs des versions précédentes s'ouvrent et s'enregistrent comme avant.
+
+### Nouveautés
+
+- **Onglets et groupes d'Excel.** Ajoutez un onglet d'Excel (Accueil, Insertion…) à votre projet pour y placer vos groupes, le masquer, ou masquer certains de ses groupes d'une case. Copiez un groupe d'Excel, par exemple Police, dans votre propre onglet. Avec `startFromScratch`, l'onglet d'Excel ajouté est réaffiché (Excel l'exige).
+- **Position.** Placez votre onglet avant ou après un onglet d'Excel (par exemple juste après Accueil), et vos groupes avant ou après un groupe d'Excel du même onglet.
+- **Raccourcis clavier.** Champ `keytip` sur les onglets, les groupes et les contrôles, avec un avertissement quand une lettre est déjà prise par Excel (Excel la remplacerait sans rien dire).
+- **Réglages d'affichage.** Nouvelle section de l'inspecteur : grisé, image seule ou libellé seul, largeur et longueur des zones de saisie, disposition des boîtes, grandes entrées de menu avec description, colonnes de galerie… Seuls les réglages que le schéma permet pour l'élément choisi sont proposés.
+- **Aperçu.** Les onglets d'Excel à leur place, leurs groupes par leur nom, vos réglages appliqués, et un bouton « Alt » qui affiche les raccourcis.
+- Comportements relevés dans Excel pour Microsoft 365 et vérifiés sur un classeur réel.
+
+## 1.11.1
+
+Correctif de l'aperçu de la barre d'outils Accès rapide. Les projets et les classeurs ne changent pas.
+
+### Corrections
+
+- **Aperçu de la barre d'outils Accès rapide.** Les boutons avec une image personnalisée l'affichent (seules les icônes intégrées d'Office apparaissaient). Comme dans Excel, un bouton sans libellé n'affiche que son image ; son nom reste visible en info-bulle.
+
+### Amélioration
+
+- **Structure du ruban.** Les blocs « Barre d'outils Accès rapide », « Menus contextuels », « Onglets contextuels » et « Backstage » se replient avec un petit « − » et se déplient avec « + ». « Tout replier » et « Tout déplier » les incluent.
+
+## 1.11.0
+
+Barre d'outils Accès rapide dans l'éditeur visuel. Les projets et les classeurs des versions précédentes s'ouvrent et s'enregistrent comme avant.
+
+### Nouveautés
+
+- **Barre d'outils Accès rapide.** Nouvelle section de la Structure du ruban : ajoutez des commandes d'Excel (catalogue avec badge de compatibilité), vos propres boutons reliés à une procédure VBA et des séparateurs, puis réordonnez-les. Deux listes : « Ce classeur », affichée quand le classeur est actif, et « Partagée », affichée dans tous les classeurs pour un complément `.xlam`.
+- **Ce qu'Excel exige, expliqué.** Excel n'applique la barre que si `startFromScratch` vaut « true » (sinon il l'ignore et affiche un message d'erreur), et la barre du classeur remplace celle de l'utilisateur. Au premier ajout, l'application propose de garder Annuler et Refaire et de passer `startFromScratch` à « true », en rappelant que les onglets d'Excel sont alors masqués. Rien ne change sans votre choix.
+- **Aperçu.** La barre s'affiche sous le ruban, avec ses icônes et ses libellés, comme dans Excel.
+- Comportements relevés dans Excel pour Microsoft 365 et vérifiés sur un classeur réel.
+
+## 1.10.0
+
+Assistant IA par cible : ruban, onglet contextuel ou menu Fichier (Backstage). Les projets et les classeurs des versions précédentes s'ouvrent et s'enregistrent comme avant.
+
+### Nouveautés
+
+- **Choix de la cible.** Avant de décrire ce que vous voulez, choisissez « Ruban », « Onglet contextuel » ou « Backstage ». La demande préparée pour votre outil d'IA ne contient que ce qui concerne cette cible (éléments permis, exemple, structure actuelle), et une réponse qui vise une autre cible est refusée.
+- **Onglets contextuels.** Vous choisissez le jeu d'onglets (tableau, graphique, tableau croisé dynamique, image…) dans une liste ; l'assistant y ajoute des onglets, des groupes et des contrôles, sans jamais toucher au reste du ruban.
+- **Menu Fichier (Backstage).** L'assistant ajoute des pages, des groupes, des boutons et des commandes rapides, les place avant ou après une commande d'Excel, masque, renomme ou grise une commande d'Excel et pose `onShow` / `onHide`. Seules les 13 commandes du menu Fichier relevées dans Excel sont acceptées. La proposition affiche la liste du menu Fichier telle qu'Excel la montrera.
+- Les garde-fous restent les mêmes : aucune connexion, rien n'est appliqué si une opération est refusée, aucun code VBA venant de l'IA, suppressions confirmées, une seule étape « Annuler ».
+
+### Compatibilité
+
+- Les réponses au format de la version 1.8 (sans champ `cible`) restent acceptées pour le ruban.
+- Aucun changement des fichiers `.cuis` et `.cuic`.
+
 ## 1.9.0
 
 Backstage (menu Fichier) dans la bibliothèque, et aperçu du menu Fichier au plus près d'Excel. Les projets et les classeurs des versions précédentes s'ouvrent et s'enregistrent comme avant.
