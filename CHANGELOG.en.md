@@ -2,6 +2,127 @@
 
 The latest version can be downloaded from the [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest) page.
 
+## 1.18.0
+
+Build a ribbon end to end from the application. Projects and workbooks from previous versions open and save as before.
+
+### New
+
+- **"Problems" panel in the Visual builder**, below the preview: ribbon errors and warnings while you build, with the same rules as when saving. A click selects the element; a problem without an element opens the XML editor at the right line. Markers in the tree and a "Problems with this element" box in the inspector.
+- **Duplicate, copy and paste** a tab, a group or a control (inspector bar, Ctrl+D, Ctrl+C, Ctrl+V), also from one project to another. Free identifiers (`<id>_2`); VBA procedures derived from the identifier are renamed, shared procedures stay shared; the keyboard shortcut (`keytip`) is not copied.
+- **"Apply to a new workbook…"**: a blank workbook (`.xlsm` if the ribbon calls macros, otherwise `.xlsx`) that receives the project's ribbon.
+- **"Finish in Excel" guide** after every "Apply", reopened from the VBA Callbacks panel: only the steps the project needs. In the desktop application, VBA modules saved next to the workbook (never replaced without confirmation) and an "Open in Excel" button.
+
+### Good to know
+
+- CustomUI Studio still never changes a workbook's VBA code: modules are imported in Excel.
+- In a new `.xlsm`, until the modules are imported, Excel reports on opening that it cannot run the `CustomUI_OnLoad` macro: click OK, then import the modules.
+
+## 1.15.0
+
+A field for every useful attribute of Microsoft's schema. Projects and workbooks from previous versions open and save as before.
+
+### New
+
+- **Tabs** (custom and contextual): visibility (`visible`), `getVisible`, `getLabel` and `getKeytip` callbacks, tag (`tag`). The label and the visibility can also be driven by a macro with `SetControlState`, as for a control.
+- **Groups**: icon of the collapsed group (`imageMso` or a workbook image), automatic scaling of large buttons when the window narrows (`autoScale`), vertical centering (`centerVertically`), visibility and tag. Label and visibility can be driven by `SetControlState`.
+- **Dialog box launcher button**: enabled state, callbacks (`getEnabled`, `getVisible`…), keyboard shortcut, display and tag.
+- **Gallery and combo box**: refresh on each opening (`invalidateContentOnDrop`); gallery: `showInRibbon`; menu separator: title.
+- **Repurposing of Office commands** (`<commands>`) on screen: new "Office commands (repurposing)" section; an Excel command can be grayed out (`enabled`, `getEnabled`) or replaced by a macro when it is started from the ribbon (`onAction`).
+- **"Other schema attributes"**: any attribute allowed at that place without a dedicated field remains editable.
+
+### Fixes
+
+- Fields the schema does not allow at that place are no longer offered (input was lost until now): split button label (it is set on its button), idMso, visibility and image of the dialog box launcher, separators and containers.
+- A custom tab is no longer shown struck through in the tree when `startFromScratch` is `true`.
+- An Office control without `idMso` blocks saving: Excel ignored it and showed "Missing ID".
+
+## 1.14.1
+
+Backstage preview and open workbook format fix. Projects and workbooks do not change.
+
+### Fixes
+
+- **Backstage preview.** Columns no longer overlap: as in Excel, a column widens to fit its content, the second one starts after the first and the page scrolls horizontally when needed.
+- **Open workbook format.** When a `.xlsm` or `.xlam` workbook is opened, its format becomes the project's: the "Format" list shows it (greyed out, "— open workbook") and, for a `.xlam` add-in, the RibbonDESIGNER module is generated in add-in mode. A `.xlsx` workbook does not change the project's format.
+
+### Improvement
+
+- **Collapsible Properties panel** to give the preview more room; its state is remembered. Smaller margins around the preview.
+
+## 1.14.0
+
+Workbook display settings generated in VBA. Projects and workbooks from previous versions open and save as before.
+
+### New
+
+- **Workbook display.** New section of the "VBA callbacks" panel: formula bar, status bar, whole ribbon, sheet tabs, scroll bars, headings, gridlines ("leave unchanged", "hide" or "show") and window title. Each setting shows its scope: all of Excel, this workbook or all sheets. Nothing is written to the ribbon XML.
+- **Generated code.** The RibbonDESIGNER module applies the settings on opening (`AppliquerAffichage`) and gives back to Excel what affects all of Excel when another workbook becomes active or the workbook closes (`RestaurerAffichage`). A button copies the snippet to paste into ThisWorkbook; with the CommandBars option, a single snippet covers both.
+- **Add-in (.xlam).** Only settings that affect all of Excel are offered (an add-in has no window).
+- Behaviours surveyed in Excel for Microsoft 365, then checked on a workbook built by the app.
+
+## 1.13.0
+
+Every Excel group, and a preview that draws them as Excel does. Projects and workbooks from previous versions open and save as before.
+
+### New
+
+- **Every Excel group.** The "Copy an Excel group into this tab" list now offers the groups of every tab (Insert, Formulas, Data, View…), sorted by tab in Excel's order, followed by the other groups documented by Microsoft for the targeted Excel version. "Before / after" positions offer every group of the tab.
+- **Faithful preview.** Excel groups are drawn with their real buttons, lists and checkboxes, in place and at size; in the desktop app, with Excel's icons. The "Alt" button also shows Excel's keytips.
+- Ribbon surveyed in Excel for Microsoft 365; each group offered as verified was copied into a tab and shown by Excel.
+
+## 1.12.0
+
+Excel tabs and groups in the visual editor, keytips and display settings. Projects and workbooks from previous versions open and save as before.
+
+### New
+
+- **Excel tabs and groups.** Add an Excel tab (Home, Insert…) to your project to put your groups in it, hide it, or hide some of its groups with a checkbox. Copy an Excel group, for example Font, into your own tab. With `startFromScratch`, the added Excel tab is shown again (Excel requires it).
+- **Position.** Place your tab before or after an Excel tab (for example right after Home), and your groups before or after an Excel group of the same tab.
+- **Keytips.** `keytip` field on tabs, groups and controls, with a warning when a letter is already used by Excel (Excel would replace it silently).
+- **Display settings.** New inspector section: greyed out, image only or label only, width and length of edit boxes, box layout, large menu items with description, gallery columns… Only the settings the schema allows for the chosen element are offered.
+- **Preview.** Excel tabs in their place, their groups by name, your settings applied, and an "Alt" button that shows the keytips.
+- Behaviours observed in Excel for Microsoft 365 and verified on a real workbook.
+
+## 1.11.1
+
+Quick Access Toolbar preview fix. Projects and workbooks do not change.
+
+### Fixes
+
+- **Quick Access Toolbar preview.** Buttons with a custom image now show it (only Office's built-in icons appeared). As in Excel, a button without a label shows only its image; its name remains visible as a tooltip.
+
+### Improvement
+
+- **Ribbon structure.** The "Quick Access Toolbar", "Context menus", "Contextual tabs" and "Backstage" sections collapse with a small "−" and expand with "+". "Collapse all" and "Expand all" include them.
+
+## 1.11.0
+
+Quick Access Toolbar in the visual editor. Projects and workbooks from previous versions open and save as before.
+
+### New
+
+- **Quick Access Toolbar.** New section of the Ribbon structure: add Excel commands (catalog with compatibility badge), your own buttons linked to a VBA procedure and separators, then reorder them. Two lists: "This workbook", shown while the workbook is active, and "Shared", shown in all workbooks for an `.xlam` add-in.
+- **What Excel requires, explained.** Excel only applies the toolbar when `startFromScratch` is "true" (otherwise it ignores it and shows an error message), and the workbook's toolbar replaces the user's. On the first addition, the application offers to keep Undo and Redo and to set `startFromScratch` to "true", reminding you that Excel's tabs are then hidden. Nothing changes without your choice.
+- **Preview.** The toolbar is shown below the ribbon, with its icons and labels, as in Excel.
+- Behaviors recorded in Excel for Microsoft 365 and verified on a real workbook.
+
+## 1.10.0
+
+AI assistant by target: ribbon, contextual tab or File menu (Backstage). Projects and workbooks from previous versions open and save as before.
+
+### New
+
+- **Target choice.** Before describing what you want, choose "Ribbon", "Contextual tab" or "Backstage". The request prepared for your AI tool only contains what concerns that target (allowed elements, example, current structure), and an answer aimed at another target is refused.
+- **Contextual tabs.** You choose the tab set (table, chart, PivotTable, picture…) from a list; the assistant adds tabs, groups and controls to it, without ever touching the rest of the ribbon.
+- **File menu (Backstage).** The assistant adds pages, groups, buttons and quick commands, places them before or after an Excel command, hides, renames or disables an Excel command and sets `onShow` / `onHide`. Only the 13 File menu commands recorded in Excel are accepted. The proposal shows the File menu list as Excel will display it.
+- The safeguards are unchanged: no connection, nothing is applied if an operation is refused, no VBA code from the AI, removals confirmed, a single "Undo" step.
+
+### Compatibility
+
+- Answers in the 1.8 format (without the `cible` field) are still accepted for the ribbon.
+- No change to `.cuis` and `.cuic` files.
+
 ## 1.9.0
 
 Backstage (File menu) in the library, and a File menu preview as close as possible to Excel. Projects and workbooks from previous versions open and save as before.
