@@ -80,7 +80,7 @@ CustomUI Studio solves the problem at the source. You build the ribbon visually,
 
 Right-click menus require the CustomUI 2009 format.
 
-![Right-click menu preview](docs/capture-menu-clic-droit.png)
+![Right-click menu preview](docs/capture-menu-clic-droit.en.png)
 
 ### Generated VBA code
 
@@ -114,7 +114,7 @@ Right-click menus require the CustomUI 2009 format.
 - **"Problems" panel in the Visual builder**: errors are shown while you build; one click selects the element concerned.
 - **XML editor kept in sync** with the interface.
 
-![XML editor and Problems panel](docs/capture-editeur-xml.png)
+![XML editor and Problems panel](docs/capture-editeur-xml.en.png)
 
 ## Your workbook is respected
 
