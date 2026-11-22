@@ -25,7 +25,7 @@
   · <a href="https://apps.microsoft.com/detail/9PH54K3T7TCT"><b>Microsoft Store</b></a>
 </p>
 
-![CustomUI Studio visual builder](docs/capture-constructeur.png)
+![CustomUI Studio visual builder](docs/capture-constructeur.en.png)
 
 ## Why CustomUI Studio?
 
@@ -52,7 +52,7 @@ CustomUI Studio solves the problem at the source. You build the ribbon visually,
 - **Two ribbon formats**: CustomUI 2006 (Office 2007) and CustomUI 2009 (Office 2010 and later).
 - **Contextual tabs and Backstage**: extend the tabs Excel shows for a table, a chart or a picture, and build the File menu (Backstage) in the editor, with a preview close to Excel 365: Excel commands, hidden items, renamed items and the position of every added element. A File menu can also be stored in the library as a component; the "Backstage – Administration" component is included.
 
-   ![Backstage preview](docs/Capture-BackStage.png)
+   ![Backstage preview](docs/Capture-BackStage.en.png)
 
 - **Quick Access Toolbar**: add Excel commands, your own buttons and separators, shown when the workbook is active (or in all workbooks for an `.xlam` add-in). The application reminds you of what Excel requires (`startFromScratch`) and offers to keep Undo and Redo, which the workbook's toolbar replaces.
 - **Excel tabs and groups**: add your groups to Home or another Excel tab, hide an Excel tab or group, copy any Excel group into your own tab (every group of every tab, drawn in the preview as in Excel), and place your tabs and groups before or after Excel's. Keyboard shortcuts (KeyTips) and display settings (disabled, image only, gallery columns…) in the inspector.
@@ -61,7 +61,7 @@ CustomUI Studio solves the problem at the source. You build the ribbon visually,
 - **Compatibility shown**: for the targeted Excel version, every command, icon and menu carries a "verified", "documented" or "unknown" badge, and a report summarizes the project.
 - **In English or French**: the language is chosen at first launch and can be changed at any time.
 
-![Live ribbon preview](docs/apercu-ruban.png)
+![Live ribbon preview](docs/apercu-ruban.en.png)
 
 ### Projects, components and templates
 
@@ -100,7 +100,7 @@ Right-click menus require the CustomUI 2009 format.
 
 ### Controlled AI assistant
 
-![AI assistant preview](docs/Capture-AssistantIA.png)
+![AI assistant preview](docs/Capture-AssistantIA.en.png)
 
 - **Describe what you want**: the application prepares a request to paste into the AI tool of your choice, then checks its answer before making any change.
 - **Three targets**: the ribbon and its right-click menus, a contextual tab (you pick the tab set: table, chart, picture…) or the File menu (Backstage), whose list the assistant shows as Excel will display it. A request covers a single target.
