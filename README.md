@@ -99,7 +99,7 @@ Les menus clic droit demandent le format CustomUI 2009.
 
 ### Assistant IA contrôlé
 
-![Aperçu Assistant IA](docs/capture-AssistantIA.png)
+![Aperçu Assistant IA](docs/Capture-AssistantIA.png)
 
 - **Décrivez ce que vous voulez** : l'application prépare une demande à coller dans l'outil d'IA de votre choix, puis vérifie sa réponse avant toute modification.
 - **Trois cibles** : le ruban et ses menus clic droit, un onglet contextuel (vous choisissez le jeu : tableau, graphique, image…) ou le menu Fichier (Backstage), dont l'assistant affiche la liste telle qu'Excel la montrera. Une demande porte sur une seule cible.
