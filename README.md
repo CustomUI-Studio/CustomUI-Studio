@@ -54,7 +54,7 @@ CustomUI Studio règle le problème à la source. Vous construisez le ruban visu
   
    ![Aperçu du backstage](docs/Capture-BackStage.png)
     Voir le code XML.
-   ![Aperçu code du ruban XML](docs/customUI.xml)
+   ![Aperçu du code XML](docs/customUI.xml)
   
 - **Barre d'outils Accès rapide** : ajoutez des commandes d'Excel, vos propres boutons et des séparateurs, affichés quand le classeur est actif (ou dans tous les classeurs pour un complément `.xlam`). L'application rappelle ce qu'Excel exige (`startFromScratch`) et propose de garder Annuler et Refaire, que la barre du classeur remplace.
 - **Onglets et groupes d'Excel** : ajoutez vos groupes dans Accueil ou un autre onglet d'Excel, masquez un onglet ou un groupe d'Excel, copiez dans votre onglet n'importe quel groupe d'Excel (tous les groupes de chaque onglet, dessinés dans l'aperçu comme dans Excel), et placez vos onglets et groupes avant ou après ceux d'Excel. Raccourcis clavier et réglages d'affichage (grisé, image seule, colonnes de galerie…) dans l'inspecteur.
