@@ -115,7 +115,7 @@ Right-click context menus require the CustomUI 2009 format.
 - **"Issues" panel in the Visual Builder**: errors appear live as you build; clicking an issue selects the corresponding element.
 - **Synchronized XML editor** linked with the visual interface.
 
-![XML editor and Issues panel](docs/capture-editeur-xml.png)
+![XML editor and Issues panel](docs/capture-editeur-xml.en.png)
 
 ## Your workbook is respected
 
