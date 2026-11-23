@@ -25,7 +25,7 @@
   · <a href="https://apps.microsoft.com/detail/9PH54K3T7TCT"><b>Microsoft Store</b></a>
 </p>
 
-![CustomUI Studio visual builder](docs/capture-constructeur.png)
+![CustomUI Studio visual builder](docs/capture-constructeur.en.png)
 
 ## Why CustomUI Studio?
 
@@ -52,7 +52,7 @@ CustomUI Studio solves the problem at the source. You build the ribbon visually,
 - **Two ribbon formats**: CustomUI 2006 (Office 2007) and CustomUI 2009 (Office 2010 and later).
 - **Contextual tabs and Backstage**: extend the tabs Excel displays for a table, chart, or picture, and design the File menu (Backstage) directly in the editor with a preview close to Excel 365: built-in Excel commands, visibility toggles, renames, and placement of every added item. A File menu can also be saved to the library as a reusable component; the "Backstage – Administration" component is included.
 
-  ![Backstage preview](docs/Capture-BackStage.png)
+  ![Backstage preview](docs/Capture-BackStage.en.png)
   [View generated XML code](docs/customUI.xml)
 
 - **Quick Access Toolbar (QAT)**: add built-in Excel commands, your own buttons, and separators, displayed whenever the workbook is active (or across all workbooks for an `.xlam` add-in). The app reminds you of Excel's requirements (`startFromScratch`) and offers to keep Undo and Redo, which a custom workbook QAT otherwise replaces.
@@ -62,7 +62,7 @@ CustomUI Studio solves the problem at the source. You build the ribbon visually,
 - **Displayed compatibility**: for the target Excel version, every command, icon, and menu carries a "verified", "documented", or "unknown" badge, and a summary report covers the whole project.
 - **In English or French**: choose your language on first launch and switch at any time.
 
-![Live ribbon preview](docs/apercu-ruban.png)
+![Live ribbon preview](docs/apercu-ruban.en.png)
 
 ### Projects, components, and templates
 
@@ -81,7 +81,7 @@ CustomUI Studio solves the problem at the source. You build the ribbon visually,
 
 Right-click context menus require the CustomUI 2009 format.
 
-![Right-click menu preview](docs/capture-menu-clic-droit.png)
+![Right-click menu preview](docs/capture-menu-clic-droit.en.png)
 
 ### Generated VBA code
 
