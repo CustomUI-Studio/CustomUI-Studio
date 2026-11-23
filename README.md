@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.18.0.exe"><b>⬇️ Télécharger CustomUI Studio 1.18.0</b></a>
+  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.18.0.exe"><b>Télécharger CustomUI Studio 1.18.0</b></a>
   · <a href="https://apps.microsoft.com/detail/9PH54K3T7TCT"><b>Microsoft Store</b></a>
 </p>
 
@@ -35,9 +35,9 @@ CustomUI Studio règle le problème à la source. Vous construisez le ruban visu
 
 ## En trois étapes
 
-1. **Importez** votre classeur `.xlsx`, `.xlsm` ou votre complément `.xlam`, ou partez d'un ruban vide ou d'un modèle.
-2. **Composez** le ruban : ajoutez onglets, groupes et contrôles, choisissez leurs icônes, réglez leurs propriétés. L'aperçu se met à jour en direct.
-3. **Enregistrez** : le ruban est écrit dans le classeur, et le module VBA qui l'accompagne est prêt à importer.
+| 1. Importez | 2. Composez | 3. Enregistrez |
+| :--- | :--- | :--- |
+| Ouvrez votre classeur `.xlsx`, `.xlsm` ou votre complément `.xlam`, ou partez d'un ruban vide ou d'un modèle. | Ajoutez onglets, groupes et contrôles, choisissez leurs icônes, réglez leurs propriétés. L'aperçu se met à jour en direct. | Le ruban est écrit dans le classeur, et le module VBA qui l'accompagne est prêt à importer. |
 
 ## Fonctionnalités
 
@@ -51,11 +51,10 @@ CustomUI Studio règle le problème à la source. Vous construisez le ruban visu
 - **Icônes** : bibliothèque imageMso classée par catégorie avec recherche, vos propres images, et catalogue des commandes natives d'Excel (Enregistrer, Copier, Somme automatique…). Avec Excel installé, l'aperçu affiche les vraies icônes d'Excel.
 - **Deux formats de ruban** : CustomUI 2006 (Office 2007) et CustomUI 2009 (Office 2010 et versions suivantes).
 - **Onglets contextuels et Backstage** : complétez les onglets qu'Excel affiche pour un tableau, un graphique ou une image, et construisez le menu Fichier (Backstage) dans l'éditeur, avec un aperçu proche d'Excel 365 : commandes d'Excel, masquages, renommages et place de chaque élément ajouté. Un menu Fichier se range aussi dans la bibliothèque comme composant ; le composant « Backstage – Administration » est fourni.
-  
-   ![Aperçu du backstage](docs/Capture-BackStage.png)
-    Voir le code XML.
-   ![Aperçu du code XML](docs/customUI.xml)
-  
+
+  ![Aperçu du backstage](docs/Capture-BackStage.png)
+  [Voir le code XML généré](docs/customUI.xml)
+
 - **Barre d'outils Accès rapide** : ajoutez des commandes d'Excel, vos propres boutons et des séparateurs, affichés quand le classeur est actif (ou dans tous les classeurs pour un complément `.xlam`). L'application rappelle ce qu'Excel exige (`startFromScratch`) et propose de garder Annuler et Refaire, que la barre du classeur remplace.
 - **Onglets et groupes d'Excel** : ajoutez vos groupes dans Accueil ou un autre onglet d'Excel, masquez un onglet ou un groupe d'Excel, copiez dans votre onglet n'importe quel groupe d'Excel (tous les groupes de chaque onglet, dessinés dans l'aperçu comme dans Excel), et placez vos onglets et groupes avant ou après ceux d'Excel. Raccourcis clavier et réglages d'affichage (grisé, image seule, colonnes de galerie…) dans l'inspecteur.
 - **Affichage du classeur** : masquez la barre de formule, la barre d'état, le ruban, les onglets de feuilles, les en-têtes ou le quadrillage, et donnez un titre à la fenêtre ; le code VBA généré applique ces réglages et rend à Excel ce qui agit sur tous les classeurs quand le vôtre perd la main.
@@ -64,6 +63,7 @@ CustomUI Studio règle le problème à la source. Vous construisez le ruban visu
 - **En français ou en anglais** : la langue se choisit au premier lancement et se change à tout moment.
 
 ![Aperçu du ruban en direct](docs/apercu-ruban.png)
+
 ### Projets, composants et modèles
 
 - **Projets `.cuis`** : enregistrez un ruban indépendamment de tout classeur, rouvrez-le, puis appliquez-le au classeur de votre choix.
@@ -133,6 +133,7 @@ Quand vous cliquez sur **Enregistrer Office**, votre classeur n'est pas reconstr
 1. Téléchargez [`CustomUI.Studio.1.18.0.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.18.0.exe) depuis la page [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest).
 2. Double-cliquez dessus. Aucune installation n'est nécessaire.
 
+> [!NOTE]
 > **Message « Windows a protégé votre ordinateur » ?**
 > L'exécutable portable n'est pas signé numériquement, ce qui déclenche l'avertissement Windows SmartScreen au premier lancement. Cliquez sur **Informations complémentaires** puis **Exécuter quand même**.
 
@@ -176,26 +177,14 @@ CustomUI Studio est disponible sur le [Microsoft Store](https://apps.microsoft.c
 - La liste des commandes d'Excel des menus clic droit a été relevée dans Excel pour Microsoft 365, en français. Excel peut en afficher d'autres selon le contexte et la version.
 - En anglais, les noms des commandes d'Excel des menus clic droit et le module VBA généré restent en français.
 - Dans un complément `.xlam`, `ThisWorkbook` désigne le complément lui-même : le code généré utilise le classeur actif, et l'application signale le code des composants qui utilise `ThisWorkbook`.
-- L'assistant IA ne gère ni les composants de la bibliothèque ni les images personnalisées ; dans le menu Fichier, il ne règle que les 13 commandes d'Excel relevées dans Excel pour Microsoft 365.
+- L'assistant IA ne gère ni les composants de bibliothèque ni les images personnalisées ; dans le menu Fichier, il ne règle que les 13 commandes d'Excel relevées dans Excel pour Microsoft 365.
 
-## Versions
+## Informations complémentaires
 
-La version actuelle est la 1.18.0. Le détail de chaque version est dans l'[historique des versions](CHANGELOG.md).
-
-## Questions, suggestions, bugs
-
-Ouvrez un ticket dans l'onglet [Issues](https://github.com/CustomUI-Studio/CustomUI-Studio/issues) de ce dépôt.
-
-## Confidentialité
-
-CustomUI Studio ne collecte et ne transmet aucune donnée, et fonctionne sans connexion à Internet, assistant IA compris : c'est vous qui copiez la demande dans votre outil d'IA. Voir la [politique de confidentialité](CONFIDENTIALITE.md).
-
-## Composants tiers
-
-La vérification du XML utilise libxml2 (licence MIT) par l'intermédiaire de xmllint-wasm (licence MIT). Les schémas CustomUI sont ceux de Microsoft Corporation.
-
-## Licence
-
-Logiciel gratuit (freeware), code source non publié. Voir [LICENCE.txt](LICENCE.txt).
+- **Versions** : la version actuelle est la 1.18.0. Le détail de chaque version est dans l'[historique des versions](CHANGELOG.md).
+- **Questions, suggestions, bugs** : ouvrez un ticket dans l'onglet [Issues](https://github.com/CustomUI-Studio/CustomUI-Studio/issues) de ce dépôt.
+- **Confidentialité** : CustomUI Studio ne collecte et ne transmet aucune donnée, et fonctionne sans connexion à Internet, assistant IA compris : c'est vous qui copiez la demande dans votre outil d'IA. Voir la [politique de confidentialité](CONFIDENTIALITE.md).
+- **Composants tiers** : la vérification du XML utilise libxml2 (licence MIT) par l'intermédiaire de xmllint-wasm (licence MIT). Les schémas CustomUI sont ceux de Microsoft Corporation.
+- **Licence** : logiciel gratuit (freeware), code source non publié. Voir [LICENCE.txt](LICENCE.txt).
 
 © 2026 Régis DEVAUX — Tous droits réservés.
