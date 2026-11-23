@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customUI onLoad="Ribbon_OnLoad" xmlns="http://schemas.microsoft.com/office/2009/07/customui">
+  <ribbon>
+    <tabs>
+      <tab keytip="K" insertBeforeMso="TabHome" id="tabStock" label="Stock">
+        <group id="grpArticles" label="Articles">
+          <button keytip="N" tag="GS_NouvelArticle" id="btnNouvel" label="Nouvel article" onAction="Rb_Action" imageMso="GoToNewRecord" size="large" screentip="Nouvel article" supertip="Crée un article ; sa référence est générée automatiquement." />
+          <button keytip="M" tag="GS_ModifierArticle" id="btnModifier" label="Modifier" onAction="Rb_Action" imageMso="PropertySheet" screentip="Modifier l'article" supertip="Modifie l'article de la ligne sélectionnée." />
+          <button keytip="D" tag="GS_DupliquerArticle" id="btnDupliquer" label="Dupliquer" onAction="Rb_Action" imageMso="Copy" screentip="Dupliquer l'article" supertip="Crée un nouvel article à partir de celui sélectionné (nouvelle référence)." />
+          <button keytip="A" tag="GS_ArchiverArticle" getEnabled="Rb_GetEnabled" id="btnArchiver" label="Archiver" onAction="Rb_Action" imageMso="Archive" screentip="Archiver ou réactiver" supertip="Un article archivé n'accepte plus de mouvement ; son historique est conservé." />
+        </group>
+        <group id="grpMouvements" label="Mouvements">
+          <button keytip="E" tag="GS_Entree" id="btnEntree" label="Entrée" onAction="Rb_Action" imageMso="ImportExcel" size="large" screentip="Entrée de stock" supertip="Réception fournisseur ou retour client." />
+          <button keytip="S" tag="GS_Sortie" id="btnSortie" label="Sortie" onAction="Rb_Action" imageMso="ExportExcel" size="large" screentip="Sortie de stock" supertip="Vente, consommation interne ou perte. Refusée si le stock est insuffisant (selon le réglage)." />
+          <button keytip="R" tag="GS_Retour" id="btnRetour" label="Retour client" onAction="Rb_Action" imageMso="Undo" />
+          <button keytip="P" tag="GS_Perte" id="btnPerte" label="Perte / casse" onAction="Rb_Action" imageMso="CancelRequest" />
+          <button keytip="T" tag="GS_Transfert" id="btnTransfert" label="Transfert" onAction="Rb_Action" imageMso="MoveToFolder" screentip="Transfert d'emplacement" supertip="Change l'emplacement de l'article et le trace dans le journal." />
+        </group>
+        <group id="grpRecherche" label="Recherche">
+          <comboBox sizeString="WWWWWWWWWWWWWW" keytip="F" getItemCount="Rb_SkuCount" getItemLabel="Rb_SkuLabel" getText="Rb_RechercheTexte" onChange="Rb_Recherche" id="cboRecherche" label="Référence" imageMso="FindDialog" screentip="Rechercher un article" supertip="Tapez une référence, un code-barres ou un mot de la désignation, puis Entrée. La liste propose les références actives." />
+          <button keytip="G" id="btnSuivant" label="Suivant" onAction="Rb_RechercheSuivant" imageMso="FindNext" screentip="Résultat suivant" supertip="Passe à l'article suivant qui contient le texte recherché." />
+        </group>
+        <group id="grpInventaire" label="Inventaire">
+          <button keytip="ID" tag="GS_DemarrerInventaire" id="btnInvDebut" label="Démarrer" onAction="Rb_Action" imageMso="ClearAll" screentip="Démarrer un inventaire" supertip="Vide la colonne Stock réel pour recevoir les nouveaux comptages." />
+          <button keytip="IS" tag="GS_SaisirStockReel" id="btnInvSaisie" label="Saisir le stock réel" onAction="Rb_Action" imageMso="DataFormSource" />
+          <button keytip="IV" tag="GS_ValiderEcarts" id="btnInvValider" label="Valider les écarts" onAction="Rb_Action" imageMso="AcceptInvitation" screentip="Valider les écarts" supertip="Crée les mouvements d'ajustement qui alignent le stock théorique sur le stock compté." />
+        </group>
+        <group id="grpAppro" label="Réapprovisionnement">
+          <button keytip="C" tag="GS_ArticlesACommander" id="btnACommander" label="À commander" onAction="Rb_Action" imageMso="Filter" size="large" screentip="Articles à commander" supertip="Filtre les articles À commander, URGENT et En rupture." />
+          <button keytip="O" tag="GS_AfficherTout" id="btnToutAfficher" label="Tout afficher" onAction="Rb_Action" imageMso="FilterClearAllFilters" />
+          <button keytip="B" tag="GS_BonDeCommande" id="btnBonCommande" label="Bon de commande" onAction="Rb_Action" imageMso="FileSendAsAttachment" screentip="Bon de commande" supertip="Prépare le bon de commande d'un fournisseur (Excel + PDF), à envoyer par fichier ou par Outlook." />
+          <button keytip="PC" tag="GS_RecalculerPointsCommande" id="btnPoints" label="Points de commande" onAction="Rb_Action" imageMso="Calculator" screentip="Recalculer les points de commande" supertip="Stock de sécurité + consommation moyenne des 30 derniers jours × délai fournisseur." />
+        </group>
+        <group id="grpAnalyse" label="Analyse et envoi">
+          <button keytip="U" tag="GS_Actualiser" id="btnActualiser" label="Actualiser" onAction="Rb_Action" imageMso="Refresh" />
+          <button keytip="Y" tag="GS_Synthese" id="btnSynthese" label="Synthèse" onAction="Rb_Action" imageMso="ChartInsert" />
+          <button keytip="V" tag="GS_ControleIntegrite" id="btnControle" label="Contrôle d'intégrité" onAction="Rb_Action" imageMso="DataValidation" screentip="Contrôle d'intégrité" supertip="Vérifie les références, codes-barres, fournisseurs, seuils et mouvements ; écrit un rapport." />
+          <menu keytip="X" id="mnuExporter" label="Exporter" imageMso="FileSendMenu" size="large" screentip="Exporter et envoyer" supertip="Enregistre un fichier dans le dossier d'export ; Outlook est proposé s'il est disponible.">
+            <button tag="GS_ExporterMouvements" id="btnExpMvt" label="Journal des mouvements" onAction="Rb_Action" imageMso="ExportTextFile" />
+            <button tag="GS_ExporterStock" id="btnExpStock" label="État des stocks" onAction="Rb_Action" imageMso="TableInsertExcel" />
+            <button tag="GS_ExporterSynthesePDF" id="btnExpPdf" label="Synthèse en PDF" onAction="Rb_Action" imageMso="FileSaveAsPdfOrXps" />
+          </menu>
+        </group>
+        <group id="grpAdmin" label="Administration">
+          <toggleButton keytip="AD" getPressed="Rb_AdminPressed" id="tglAdmin" label="Mode Administrateur" onAction="Rb_AdminToggle" imageMso="Lock" size="large" screentip="Mode Administrateur" supertip="Déverrouille les feuilles et les réglages (mot de passe). Les réglages sont dans Fichier > Administration." />
+        </group>
+      </tab>
+    </tabs>
+    <contextualTabs>
+      <tabSet idMso="TabSetTableToolsExcel">
+        <tab keytip="J" getVisible="Rb_CtxVisible" id="tabArticle" label="Article">
+          <group id="grpCtxInfo" label="Article sélectionné">
+            <labelControl getLabel="Rb_CtxLabel" id="lblCtxSku" />
+            <labelControl getLabel="Rb_CtxLabel" id="lblCtxStock" />
+            <labelControl getLabel="Rb_CtxLabel" id="lblCtxStatut" />
+          </group>
+          <group id="grpCtxMvt" label="Mouvements">
+            <button tag="GS_Entree" id="ctxEntree" label="Entrée" onAction="Rb_Action" imageMso="ImportExcel" size="large" />
+            <button tag="GS_Sortie" id="ctxSortie" label="Sortie" onAction="Rb_Action" imageMso="ExportExcel" size="large" />
+            <button tag="GS_Retour" id="ctxRetour" label="Retour client" onAction="Rb_Action" imageMso="Undo" />
+            <button tag="GS_Perte" id="ctxPerte" label="Perte / casse" onAction="Rb_Action" imageMso="CancelRequest" />
+            <button tag="GS_Transfert" id="ctxTransfert" label="Transfert" onAction="Rb_Action" imageMso="MoveToFolder" />
+          </group>
+          <group id="grpCtxActions" label="Article">
+            <button tag="GS_ModifierArticle" id="ctxFiche" label="Fiche article" onAction="Rb_Action" imageMso="PropertySheet" size="large" />
+            <button tag="GS_Historique" id="ctxHistorique" label="Historique" onAction="Rb_Action" imageMso="TracePrecedents" screentip="Historique des mouvements" supertip="Affiche les mouvements de cet article dans la feuille Mouvements." />
+            <button tag="GS_SaisirStockReel" id="ctxAjuster" label="Stock réel" onAction="Rb_Action" imageMso="DataFormSource" />
+            <button tag="GS_CommanderArticle" id="ctxCommander" label="Commander" onAction="Rb_Action" imageMso="FileSendAsAttachment" screentip="Commander" supertip="Ouvre le bon de commande du fournisseur de cet article." />
+            <button tag="GS_VoirArticle" getVisible="Rb_CtxMvtVisible" id="ctxVoir" label="Voir dans l'état des stocks" onAction="Rb_Action" imageMso="ZoomToSelection" />
+            <button tag="GS_AfficherToutMvt" getVisible="Rb_CtxMvtVisible" id="ctxToutMvt" label="Tous les mouvements" onAction="Rb_Action" imageMso="FilterClearAllFilters" />
+          </group>
+        </tab>
+      </tabSet>
+    </contextualTabs>
+  </ribbon>
+  <backstage onShow="Bs_OnShow">
+    <tab id="tabAdmin" label="Administration" title="Administration du stock" insertAfterMso="TabInfo" columnWidthPercent="50" keytip="Z">
+      <firstColumn>
+        <group id="grpAdmAcces" label="Accès administrateur" helperText="Les réglages, la clôture et les corrections exigent le mode Administrateur. Il se désactive à chaque ouverture du classeur.">
+          <topItems>
+            <labelControl id="lblAdmEtat" getLabel="Bs_GetLabel" />
+            <layoutContainer id="lcAdmAcces" layoutChildren="horizontal">
+              <button id="btnAdmActiver" label="Activer le mode Administrateur" imageMso="Lock" getVisible="Bs_GetVisible" onAction="Rb_Action" tag="ADM_Activer" />
+              <button id="btnAdmQuitter" label="Quitter le mode Administrateur" imageMso="Lock" getVisible="Bs_GetVisible" onAction="Rb_Action" tag="ADM_Quitter" />
+              <button id="btnAdmMdp" label="Changer le mot de passe" imageMso="ReviewRestrictEditing" getVisible="Bs_GetVisible" onAction="Rb_Action" tag="ADM_ChangerMdp" />
+            </layoutContainer>
+            <layoutContainer id="lcAdmAcces2" layoutChildren="horizontal">
+              <button id="btnAdmFeuille" label="Réglages et journal d'audit" imageMso="PropertySheet" isDefinitive="true" getVisible="Bs_GetVisible" onAction="Rb_Action" tag="ADM_AfficherAdmin" />
+            </layoutContainer>
+          </topItems>
+        </group>
+        <group id="grpAdmRegles" label="Règles de gestion" helperText="Appliquées immédiatement par les formulaires et les commandes du ruban.">
+          <topItems>
+            <checkBox id="chkStockNeg" label="Autoriser les sorties supérieures au stock (stock négatif)" getPressed="Bs_GetPressed" onAction="Bs_CheckAction" getEnabled="Bs_GetEnabled" />
+            <dropDown id="ddValorisation" label="Valorisation des réceptions" getSelectedItemIndex="Bs_GetIndex" onAction="Bs_DropAction" getEnabled="Bs_GetEnabled">
+              <item id="val_CUMP" label="Coût unitaire moyen pondéré (CUMP)" />
+              <item id="val_DERNIER_PRIX" label="Dernier prix d'achat" />
+            </dropDown>
+            <checkBox id="chkPCAuto" label="Recalculer le point de commande après chaque mouvement" getPressed="Bs_GetPressed" onAction="Bs_CheckAction" getEnabled="Bs_GetEnabled" />
+            <checkBox id="chkProtection" label="Protéger les feuilles (saisie par les formulaires)" getPressed="Bs_GetPressed" onAction="Bs_CheckAction" getEnabled="Bs_GetEnabled" />
+          </topItems>
+        </group>
+        <group id="grpAdmRef" label="Références et société">
+          <topItems>
+            <editBox id="ebSociete" label="Société" sizeString="WWWWWWWWWWWWWWWWWWWW" getText="Bs_GetText" onChange="Bs_EditChange" getEnabled="Bs_GetEnabled" />
+            <editBox id="ebFormatSKU" label="Modèle de référence" sizeString="WWWWWWWWWWWWWWWWWWWW" getText="Bs_GetText" onChange="Bs_EditChange" getEnabled="Bs_GetEnabled" />
+            <labelControl id="lblSkuAide" label="Balises : {PREFIXE} (catégorie), {DESIG} (4 lettres de la désignation), {NUM} (compteur, obligatoire)." />
+            <editBox id="ebCompteur" label="Prochain numéro" sizeString="WWWWWW" getText="Bs_GetText" onChange="Bs_EditChange" getEnabled="Bs_GetEnabled" />
+            <editBox id="ebChiffres" label="Chiffres du compteur (1 à 8)" sizeString="WW" getText="Bs_GetText" onChange="Bs_EditChange" getEnabled="Bs_GetEnabled" />
+            <labelControl id="lblSkuExemple" getLabel="Bs_GetLabel" />
+            <checkBox id="chkEAN" label="Code-barres obligatoire à la création d'un article" getPressed="Bs_GetPressed" onAction="Bs_CheckAction" getEnabled="Bs_GetEnabled" />
+          </topItems>
+        </group>
+      </firstColumn>
+      <secondColumn>
+        <group id="grpAdmValid" label="Validation des données" helperText="Contrôle des références, codes-barres, fournisseurs, seuils et mouvements.">
+          <topItems>
+            <layoutContainer id="lcAdmValid" layoutChildren="horizontal">
+              <button id="btnAdmControle" label="Lancer le contrôle d'intégrité" imageMso="DataValidation" isDefinitive="true" getEnabled="Bs_GetEnabled" onAction="Rb_Action" tag="GS_ControleIntegrite" />
+              <button id="btnAdmCorriger" label="Corriger automatiquement" imageMso="AcceptInvitation" getEnabled="Bs_GetEnabled" onAction="Rb_Action" tag="ADM_Corriger" />
+            </layoutContainer>
+            <labelControl id="lblCorrigeables" getLabel="Bs_GetLabel" />
+          </topItems>
+        </group>
+        <group id="grpAdmEnvoi" label="Envoi des données" helperText="L'export de fichier est le mode principal ; Outlook prépare un brouillon que vous relisez avant l'envoi.">
+          <topItems>
+            <dropDown id="ddEnvoi" label="Mode d'envoi" getSelectedItemIndex="Bs_GetIndex" onAction="Bs_DropAction" getEnabled="Bs_GetEnabled">
+              <item id="env_FICHIER" label="Fichier (export)" />
+              <item id="env_OUTLOOK" label="Brouillon Outlook" />
+            </dropDown>
+            <checkBox id="chkOutlook" label="Proposer Outlook après un export" getPressed="Bs_GetPressed" onAction="Bs_CheckAction" getEnabled="Bs_GetEnabled" />
+            <labelControl id="lblOutlook" getLabel="Bs_GetLabel" />
+            <dropDown id="ddFormat" label="Format des exports de tableaux" getSelectedItemIndex="Bs_GetIndex" onAction="Bs_DropAction" getEnabled="Bs_GetEnabled">
+              <item id="fmt_XLSX" label="Classeur Excel (.xlsx)" />
+              <item id="fmt_CSV" label="CSV UTF-8 (.csv)" />
+            </dropDown>
+            <editBox id="ebDossier" label="Dossier d'export (vide : à côté du classeur)" sizeString="WWWWWWWWWWWWWWWWWWWWWWWW" getText="Bs_GetText" onChange="Bs_EditChange" getEnabled="Bs_GetEnabled" />
+            <labelControl id="lblDossier" getLabel="Bs_GetLabel" />
+            <layoutContainer id="lcAdmDossier" layoutChildren="horizontal">
+              <button id="btnAdmChoisir" label="Choisir le dossier" imageMso="FileOpen" getEnabled="Bs_GetEnabled" onAction="Rb_Action" tag="ADM_ChoisirDossier" />
+              <button id="btnAdmOuvrir" label="Ouvrir le dossier" imageMso="FileOpen" getEnabled="Bs_GetEnabled" onAction="Rb_Action" tag="ADM_OuvrirDossier" />
+            </layoutContainer>
+            <layoutContainer id="lcAdmExports" layoutChildren="horizontal">
+              <button id="btnAdmExpMvt" label="Exporter les mouvements" imageMso="ExportTextFile" getEnabled="Bs_GetEnabled" onAction="Rb_Action" tag="GS_ExporterMouvements" />
+              <button id="btnAdmExpStock" label="Exporter l'état des stocks" imageMso="TableInsertExcel" getEnabled="Bs_GetEnabled" onAction="Rb_Action" tag="GS_ExporterStock" />
+            </layoutContainer>
+            <layoutContainer id="lcAdmExports2" layoutChildren="horizontal">
+              <button id="btnAdmExpAudit" label="Exporter le journal d'audit" imageMso="ExportTextFile" getEnabled="Bs_GetEnabled" onAction="Rb_Action" tag="ADM_ExporterAudit" />
+            </layoutContainer>
+          </topItems>
+        </group>
+        <group id="grpAdmMaint" label="Maintenance">
+          <topItems>
+            <labelControl id="lblPeriode" getLabel="Bs_GetLabel" />
+            <labelControl id="lblSauvegarde" getLabel="Bs_GetLabel" />
+            <layoutContainer id="lcAdmMaint" layoutChildren="horizontal">
+              <button id="btnAdmSauver" label="Sauvegarde horodatée" imageMso="FileSave" getEnabled="Bs_GetEnabled" onAction="Rb_Action" tag="ADM_Sauvegarder" />
+              <button id="btnAdmCloturer" label="Clôturer la période" imageMso="Archive" getEnabled="Bs_GetEnabled" onAction="Rb_Action" tag="ADM_Cloturer" />
+            </layoutContainer>
+          </topItems>
+        </group>
+      </secondColumn>
+    </tab>
+  </backstage>
+  <contextMenus>
+    <contextMenu idMso="ContextMenuCell">
+      <menu insertBeforeMso="Cut" getVisible="Rb_MenuVisible" id="cmCellStock" label="Stock" imageMso="TableInsertExcel">
+        <button tag="GS_Entree" id="cmCellEntree" label="Entrée de stock" onAction="Rb_Action" imageMso="ImportExcel" />
+        <button tag="GS_Sortie" id="cmCellSortie" label="Sortie de stock" onAction="Rb_Action" imageMso="ExportExcel" />
+        <button tag="GS_Retour" id="cmCellRetour" label="Retour client" onAction="Rb_Action" imageMso="Undo" />
+        <button tag="GS_Perte" id="cmCellPerte" label="Perte / casse" onAction="Rb_Action" imageMso="CancelRequest" />
+        <menuSeparator id="cmCellSep1" />
+        <button tag="GS_ModifierArticle" id="cmCellFiche" label="Fiche article" onAction="Rb_Action" imageMso="PropertySheet" />
+        <button tag="GS_Historique" id="cmCellHisto" label="Historique des mouvements" onAction="Rb_Action" imageMso="TracePrecedents" />
+        <button tag="GS_CopierReference" id="cmCellCopier" label="Copier la référence" onAction="Rb_Action" imageMso="Copy" />
+        <button tag="GS_SaisirStockReel" id="cmCellReel" label="Saisir le stock réel" onAction="Rb_Action" imageMso="DataFormSource" />
+        <button tag="GS_CommanderArticle" id="cmCellCommander" label="Commander chez le fournisseur" onAction="Rb_Action" imageMso="FileSendAsAttachment" />
+        <button tag="GS_Transfert" id="cmCellTransfert" label="Transfert d'emplacement" onAction="Rb_Action" imageMso="MoveToFolder" />
+      </menu>
+    </contextMenu>
+    <contextMenu idMso="ContextMenuListRange">
+      <menu insertBeforeMso="Cut" getVisible="Rb_MenuVisible" id="cmListStock" label="Stock" imageMso="TableInsertExcel">
+        <button tag="GS_Entree" id="cmListEntree" label="Entrée de stock" onAction="Rb_Action" imageMso="ImportExcel" />
+        <button tag="GS_Sortie" id="cmListSortie" label="Sortie de stock" onAction="Rb_Action" imageMso="ExportExcel" />
+        <button tag="GS_Retour" id="cmListRetour" label="Retour client" onAction="Rb_Action" imageMso="Undo" />
+        <button tag="GS_Perte" id="cmListPerte" label="Perte / casse" onAction="Rb_Action" imageMso="CancelRequest" />
+        <menuSeparator id="cmListSep1" />
+        <button tag="GS_ModifierArticle" id="cmListFiche" label="Fiche article" onAction="Rb_Action" imageMso="PropertySheet" />
+        <button tag="GS_Historique" id="cmListHisto" label="Historique des mouvements" onAction="Rb_Action" imageMso="TracePrecedents" />
+        <button tag="GS_CopierReference" id="cmListCopier" label="Copier la référence" onAction="Rb_Action" imageMso="Copy" />
+        <button tag="GS_SaisirStockReel" id="cmListReel" label="Saisir le stock réel" onAction="Rb_Action" imageMso="DataFormSource" />
+        <button tag="GS_CommanderArticle" id="cmListCommander" label="Commander chez le fournisseur" onAction="Rb_Action" imageMso="FileSendAsAttachment" />
+        <button tag="GS_Transfert" id="cmListTransfert" label="Transfert d'emplacement" onAction="Rb_Action" imageMso="MoveToFolder" />
+        <button tag="GS_VoirArticle" getVisible="Rb_CtxMvtVisible" id="cmListVoir" label="Voir dans l'état des stocks" onAction="Rb_Action" imageMso="ZoomToSelection" />
+      </menu>
+    </contextMenu>
+  </contextMenus>
+</customUI>
