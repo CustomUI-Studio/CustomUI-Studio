@@ -53,7 +53,9 @@ CustomUI Studio solves the problem at the source. You build the ribbon visually,
 - **Contextual tabs and Backstage**: extend the tabs Excel shows for a table, a chart or a picture, and build the File menu (Backstage) in the editor, with a preview close to Excel 365: Excel commands, hidden items, renamed items and the position of every added element. A File menu can also be stored in the library as a component; the "Backstage – Administration" component is included.
 
    ![Backstage preview](docs/Capture-BackStage.en.png)
-
+    See the XML code. 
+   ![XML preview](docs/customUI.xml)
+  
 - **Quick Access Toolbar**: add Excel commands, your own buttons and separators, shown when the workbook is active (or in all workbooks for an `.xlam` add-in). The application reminds you of what Excel requires (`startFromScratch`) and offers to keep Undo and Redo, which the workbook's toolbar replaces.
 - **Excel tabs and groups**: add your groups to Home or another Excel tab, hide an Excel tab or group, copy any Excel group into your own tab (every group of every tab, drawn in the preview as in Excel), and place your tabs and groups before or after Excel's. Keyboard shortcuts (KeyTips) and display settings (disabled, image only, gallery columns…) in the inspector.
 - **Workbook display**: hide the formula bar, the status bar, the ribbon, the sheet tabs, the headings or the gridlines, and give the window a title; the generated VBA code applies these settings and gives back to Excel whatever affects all workbooks when yours loses focus.
