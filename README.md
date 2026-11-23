@@ -53,7 +53,7 @@ CustomUI Studio règle le problème à la source. Vous construisez le ruban visu
 - **Onglets contextuels et Backstage** : complétez les onglets qu'Excel affiche pour un tableau, un graphique ou une image, et construisez le menu Fichier (Backstage) dans l'éditeur, avec un aperçu proche d'Excel 365 : commandes d'Excel, masquages, renommages et place de chaque élément ajouté. Un menu Fichier se range aussi dans la bibliothèque comme composant ; le composant « Backstage – Administration » est fourni.
   
    ![Aperçu du backstage](docs/Capture-BackStage.png)
-    Voir le code du ruban XML.
+    Voir le code XML.
    ![Aperçu code du ruban XML](docs/customUI.xml)
   
 - **Barre d'outils Accès rapide** : ajoutez des commandes d'Excel, vos propres boutons et des séparateurs, affichés quand le classeur est actif (ou dans tous les classeurs pour un complément `.xlam`). L'application rappelle ce qu'Excel exige (`startFromScratch`) et propose de garder Annuler et Refaire, que la barre du classeur remplace.
