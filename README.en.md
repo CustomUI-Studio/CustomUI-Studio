@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/banniere.png" alt="CustomUI Studio — Your Excel ribbons, built with a mouse" width="100%">
+  <img src="docs/banniere.en.png" alt="CustomUI Studio — Your Excel ribbons, built with a mouse" width="100%">
 </p>
 
 <h1 align="center">CustomUI Studio</h1>
