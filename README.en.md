@@ -55,6 +55,8 @@ CustomUI Studio solves the problem at the source. You build the ribbon visually,
   ![Backstage preview](docs/Capture-BackStage.en.png)
   [View generated XML code](docs/customUI.xml)
 
+  ![Aperçu Excel](docs/Backstage.gif)
+
 - **Quick Access Toolbar (QAT)**: add built-in Excel commands, your own buttons, and separators, displayed whenever the workbook is active (or across all workbooks for an `.xlam` add-in). The app reminds you of Excel's requirements (`startFromScratch`) and offers to keep Undo and Redo, which a custom workbook QAT otherwise replaces.
 - **Built-in Excel tabs and groups**: add your own groups inside Home or any other built-in Excel tab, hide a built-in tab or group, copy any built-in Excel group into your custom tab (every group from every tab, rendered in the preview just like Excel), and position your tabs and groups before or after Excel's built-in ones. Keyboard shortcuts (keytips) and display settings (disabled, icon-only, gallery columns…) are available in the inspector.
 - **Workbook display**: hide the formula bar, status bar, ribbon, sheet tabs, headings, or gridlines, and set a custom window title; the generated VBA code applies these settings and restores Excel's global UI elements whenever your workbook loses focus.
