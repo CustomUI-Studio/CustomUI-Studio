@@ -159,6 +159,13 @@ Get-FileHash .\CustomUI.Studio.1.18.0.exe -Algorithm SHA256
 
 CustomUI Studio est disponible sur le [Microsoft Store](https://apps.microsoft.com/detail/9PH54K3T7TCT). La version du Store est signée par Microsoft, s'installe sans avertissement Windows et se met à jour automatiquement.
 
+### Microsoft Store
+
+[![Disponible sur le Microsoft Store](https://shields.io)](https://apps.microsoft.com/detail/9PH54K3T7TCT)
+
+CustomUI Studio est disponible sur le [Microsoft Store](https://apps.microsoft.com/detail/9PH54K3T7TCT). La version du Store est signée par Microsoft, s'installe sans avertissement Windows et se met à jour automatiquement.
+
+
 ## Configuration requise
 
 - Windows 64 bits
