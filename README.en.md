@@ -101,7 +101,7 @@ Right-click context menus require the CustomUI 2009 format.
 
 ### Controlled AI Assistant
 
-![AI Assistant preview](docs/Capture-AssistantIA.png)
+![AI Assistant preview](docs/Capture-AssistantIA.en.png)
 
 - **Describe what you want**: the app prepares a structured prompt to paste into the AI tool of your choice, then validates its response before applying any changes.
 - **Three targets**: the main ribbon and its right-click menus, a contextual tab set (table, chart, picture…), or the File menu (Backstage), for which the assistant lists items just as Excel displays them. Each request targets one area at a time.
