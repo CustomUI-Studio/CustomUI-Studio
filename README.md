@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.18.0.exe"><b>Télécharger CustomUI Studio 1.18.0</b></a>
+  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.20.1.exe"><b>Télécharger CustomUI Studio 1.20.1</b></a>
   · <a href="https://apps.microsoft.com/detail/9PH54K3T7TCT"><b>Microsoft Store</b></a>
 </p>
 
@@ -90,6 +90,7 @@ Les menus clic droit demandent le format CustomUI 2009.
 - **Module `RibbonDESIGNER` prêt à l'emploi** : chaque callback a la bonne signature, avec des exemples en commentaire.
 - **Import en une macro** : `ImporterModuleRibbonDESIGNER` place le module dans votre projet VBA, sans doublon.
 - **« Appliquer à un nouveau classeur… » et guide « Terminer dans Excel »** : l'application crée le classeur, puis montre les étapes qui restent (importer les modules, coller un extrait, rouvrir). Dans la version de bureau, les modules s'enregistrent à côté du classeur et un bouton l'ouvre dans Excel.
+- **Raccourcis clavier désactivés ou repris** : Ctrl+C, Ctrl+V, F2… sont désactivés ou confiés à une de vos macros (`Application.OnKey`), puis rendus à Excel quand le classeur perd la main ou se ferme. Le préréglage « Sans copier-coller » du clic droit peut désactiver aussi les six raccourcis du copier-coller.
 - **Ruban piloté par vos macros** : cochez les propriétés d'un contrôle qui doivent pouvoir changer (libellé, grisé, masqué, image…), puis une seule ligne suffit :
 
   ```vb
@@ -108,7 +109,8 @@ Les menus clic droit demandent le format CustomUI 2009.
 - **Décrivez ce que vous voulez** : l'application prépare une demande à coller dans l'outil d'IA de votre choix, puis vérifie sa réponse avant toute modification.
 - **Trois cibles** : le ruban et ses menus clic droit, un onglet contextuel (vous choisissez le jeu : tableau, graphique, image…) ou le menu Fichier (Backstage), dont l'assistant affiche la liste telle qu'Excel la montrera. Une demande porte sur une seule cible.
 - **Rien n'est inventé** : un attribut, un contrôle ou une commande que le format ne connaît pas est refusé ; chaque changement est présenté, les suppressions sont confirmées, et « Annuler » revient en arrière en une étape.
-- **Aucune connexion** : CustomUI Studio n'envoie rien. Le code VBA, les images et les noms de fichiers ne figurent jamais dans la demande.
+- **Deux façons de travailler** : copier la demande dans l'outil d'IA de votre choix et coller sa réponse (par défaut, sans aucune connexion), ou, dans la version de bureau, l'envoyer en un clic à une IA installée sur votre ordinateur (Ollama, LM Studio…). Seules les adresses de votre ordinateur sont acceptées : rien ne part sur Internet.
+- **Ce qui est envoyé** : uniquement la demande affichée. Le code VBA, les images et les noms de fichiers ne figurent jamais dans la demande.
 
 ### Contrôle avant l'enregistrement
 
@@ -132,7 +134,7 @@ Quand vous cliquez sur **Enregistrer Office**, votre classeur n'est pas reconstr
 
 ### Version portable
 
-1. Téléchargez [`CustomUI.Studio.1.18.0.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.18.0.exe) depuis la page [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest).
+1. Téléchargez [`CustomUI.Studio.1.20.1.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.20.1.exe) depuis la page [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest).
 2. Double-cliquez dessus. Aucune installation n'est nécessaire.
 
 > [!NOTE]
@@ -144,16 +146,16 @@ Quand vous cliquez sur **Enregistrer Office**, votre classeur n'est pas reconstr
 
 <br>
 
-Empreinte SHA-256 de `CustomUI.Studio.1.18.0.exe` :
+Empreinte SHA-256 de `CustomUI.Studio.1.20.1.exe` :
 
 ```
-cecf15c36ef918ce0c3845e04f0ff0372f71bf7be7439e7fce813753e60cf1bc
+aabeee286d0797b144c1f2b785daa34a41c5b7cfa23fbffdd5c223392bf6f4ac
 ```
 
 Pour la vérifier, dans PowerShell :
 
 ```powershell
-Get-FileHash .\CustomUI.Studio.1.18.0.exe -Algorithm SHA256
+Get-FileHash .\CustomUI.Studio.1.20.1.exe -Algorithm SHA256
 ```
 
 </details>
@@ -180,12 +182,14 @@ CustomUI Studio est disponible sur le [Microsoft Store](https://apps.microsoft.c
 - En anglais, les noms des commandes d'Excel des menus clic droit et le module VBA généré restent en français.
 - Dans un complément `.xlam`, `ThisWorkbook` désigne le complément lui-même : le code généré utilise le classeur actif, et l'application signale le code des composants qui utilise `ThisWorkbook`.
 - L'assistant IA ne gère ni les composants de bibliothèque ni les images personnalisées ; dans le menu Fichier, il ne règle que les 13 commandes d'Excel relevées dans Excel pour Microsoft 365.
+- IA sur cet ordinateur : il faut installer soi-même Ollama ou LM Studio et un modèle (gratuits). Un modèle d'au moins 7 milliards de paramètres est conseillé ; sur un ordinateur sans carte graphique adaptée, une demande peut prendre plusieurs minutes.
+- Raccourcis clavier : sans effet pendant la saisie dans une cellule et dans les boîtes de dialogue ; ce n'est pas une protection (macros désactivées, Excel garde ses raccourcis). L'extrait `ThisWorkbook` fourni est indispensable. Dans un complément, fermer le complément sans quitter Excel laisse les touches prises : appelez d'abord `RestaurerRaccourcis`.
 
 ## Informations complémentaires
 
-- **Versions** : la version actuelle est la 1.18.0. Le détail de chaque version est dans l'[historique des versions](CHANGELOG.md).
+- **Versions** : la version actuelle est la 1.20.1. Le détail de chaque version est dans l'[historique des versions](CHANGELOG.md).
 - **Questions, suggestions, bugs** : ouvrez un ticket dans l'onglet [Issues](https://github.com/CustomUI-Studio/CustomUI-Studio/issues) de ce dépôt.
-- **Confidentialité** : CustomUI Studio ne collecte et ne transmet aucune donnée, et fonctionne sans connexion à Internet, assistant IA compris : c'est vous qui copiez la demande dans votre outil d'IA. Voir la [politique de confidentialité](CONFIDENTIALITE.md).
+- **Confidentialité** : CustomUI Studio ne collecte et ne transmet aucune donnée, et fonctionne sans connexion à Internet, assistant IA compris : vous copiez la demande dans votre outil d'IA, ou vous l'envoyez à une IA installée sur votre propre ordinateur. Voir la [politique de confidentialité](CONFIDENTIALITE.md).
 - **Composants tiers** : la vérification du XML utilise libxml2 (licence MIT) par l'intermédiaire de xmllint-wasm (licence MIT). Les schémas CustomUI sont ceux de Microsoft Corporation.
 - **Licence** : logiciel gratuit (freeware), code source non publié. Voir [LICENCE.txt](LICENCE.txt).
 
