@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.18.0.exe"><b>Download CustomUI Studio 1.18.0</b></a>
+  <a href="https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.20.1.exe"><b>Download CustomUI Studio 1.20.1</b></a>
   · <a href="https://apps.microsoft.com/detail/9PH54K3T7TCT"><b>Microsoft Store</b></a>
 </p>
 
@@ -90,6 +90,7 @@ Right-click context menus require the CustomUI 2009 format.
 - **Ready-to-use `RibbonDESIGNER` module**: every callback has the exact signature, complete with commented usage examples.
 - **One-macro import**: `ImporterModuleRibbonDESIGNER` inserts the module into your VBA project without duplicates.
 - **"Apply to a new workbook…" and "Finish in Excel" guide**: the app creates the workbook and walks you through the remaining steps (importing modules, pasting a snippet, reopening). In the desktop version, modules are saved right next to the workbook and a button opens it directly in Excel.
+- **Keyboard shortcuts disabled or taken over**: Ctrl+C, Ctrl+V, F2… are disabled or assigned to one of your macros (`Application.OnKey`), then given back to Excel when the workbook loses focus or closes. The right-click "No copy and paste" preset can also disable the six copy-and-paste shortcuts.
 - **Control the ribbon from your macros**: check which properties of a control should be dynamically adjustable (label, enabled, visible, image…), then a single line of VBA is all you need:
 
   ```vb
@@ -108,7 +109,8 @@ Right-click context menus require the CustomUI 2009 format.
 - **Describe what you want**: the app prepares a structured prompt to paste into the AI tool of your choice, then validates its response before applying any changes.
 - **Three targets**: the main ribbon and its right-click menus, a contextual tab set (table, chart, picture…), or the File menu (Backstage), for which the assistant lists items just as Excel displays them. Each request targets one area at a time.
 - **Nothing is hallucinated**: any attribute, control, or command unknown to the schema is rejected; every change is previewed, deletions require confirmation, and "Undo" reverts everything in one step.
-- **Zero network connection**: CustomUI Studio sends nothing online. Your VBA code, custom images, and file names are never included in the prompt.
+- **Two ways to work**: copy the prompt into the AI tool of your choice and paste its answer (the default, with no connection at all), or, in the desktop version, send it in one click to an AI installed on your computer (Ollama, LM Studio…). Only addresses of your own computer are accepted: nothing goes over the Internet.
+- **What is sent**: only the prompt shown on screen. Your VBA code, custom images, and file names are never included.
 
 ### Pre-save validation
 
@@ -132,7 +134,7 @@ When you click **Save Office**, your workbook is never rebuilt from scratch:
 
 ### Portable version
 
-1. Download [`CustomUI.Studio.1.18.0.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.18.0.exe) from the [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest) page.
+1. Download [`CustomUI.Studio.1.20.1.exe`](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest/download/CustomUI.Studio.1.20.1.exe) from the [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest) page.
 2. Double-click the executable. No installation is required.
 
 > [!NOTE]
@@ -144,16 +146,16 @@ When you click **Save Office**, your workbook is never rebuilt from scratch:
 
 <br>
 
-SHA-256 checksum for `CustomUI.Studio.1.18.0.exe`:
+SHA-256 checksum for `CustomUI.Studio.1.20.1.exe`:
 
 ```
-cecf15c36ef918ce0c3845e04f0ff0372f71bf7be7439e7fce813753e60cf1bc
+aabeee286d0797b144c1f2b785daa34a41c5b7cfa23fbffdd5c223392bf6f4ac
 ```
 
 To verify it in PowerShell:
 
 ```powershell
-Get-FileHash .\CustomUI.Studio.1.18.0.exe -Algorithm SHA256
+Get-FileHash .\CustomUI.Studio.1.20.1.exe -Algorithm SHA256
 ```
 
 </details>
@@ -180,12 +182,14 @@ CustomUI Studio is available on the [Microsoft Store](https://apps.microsoft.com
 - When the interface is switched to English, built-in right-click menu command names and the generated VBA module remain in French.
 - In an `.xlam` add-in, `ThisWorkbook` refers to the add-in itself: generated code targets `ActiveWorkbook` instead, and the app warns you if a library component references `ThisWorkbook`.
 - The AI Assistant does not manage library components or custom images; in the File menu (Backstage), it covers the 13 built-in Excel commands cataloged from Excel for Microsoft 365.
+- AI on this computer: you install Ollama or LM Studio and a model yourself (both free). A model with at least 7 billion parameters is recommended; on a computer without a suitable graphics card, a request can take several minutes.
+- Keyboard shortcuts: no effect while typing in a cell or in dialog boxes; this is not a protection (with macros disabled, Excel keeps its shortcuts). The provided `ThisWorkbook` snippet is required. In an add-in, closing the add-in without quitting Excel leaves the keys taken: call `RestaurerRaccourcis` first.
 
 ## Additional information
 
-- **Releases**: the current version is 1.18.0. Full release notes are available in the [changelog](CHANGELOG.md).
+- **Releases**: the current version is 1.20.1. Full release notes are available in the [changelog](CHANGELOG.md).
 - **Questions, suggestions, bugs**: open a ticket in the [Issues](https://github.com/CustomUI-Studio/CustomUI-Studio/issues) tab of this repository.
-- **Privacy**: CustomUI Studio collects and transmits no data and works completely offline, including the AI Assistant (you copy and paste the prompt into your own AI tool). See the [privacy policy](CONFIDENTIALITE.md).
+- **Privacy**: CustomUI Studio collects and transmits no data and works completely offline, including the AI Assistant: you copy the prompt into your own AI tool, or send it to an AI installed on your own computer. See the [privacy policy](CONFIDENTIALITE.md).
 - **Third-party components**: XML validation uses libxml2 (MIT license) via xmllint-wasm (MIT license). CustomUI schemas are copyright Microsoft Corporation.
 - **License**: freeware, closed source. See [LICENCE.txt](LICENCE.txt).
 
