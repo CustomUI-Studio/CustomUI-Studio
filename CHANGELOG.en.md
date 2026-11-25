@@ -13,7 +13,7 @@ Live preview fix: it shows the ribbon as Excel does. Projects and workbooks from
 - **Control without an image** (button, toggle button, menu, split button, gallery): no image, as in Excel; in large size, the icon space stays empty.
 - **Menu or gallery with an imageMso**: its image is shown.
 - **Check box**: unchecked at first, as in Excel.
-- **Missing icon**: a generic picture replaces the "sparkles" icon in the preview, the structure, the inspector and the catalogs.
+- **Missing icon**: a generic picture replaces the icon in the preview, the structure, the inspector and the catalogs.
 - **Ribbon structure**: File menu (Backstage) items and each right-click menu can be collapsed.
 - **Properties panel**: its header stays on one line, with the element type in capitals (translated); collapsed, the whole strip reopens it, even at the bottom of a long page; open, a click on its title bar collapses it.
 
