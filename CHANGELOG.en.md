@@ -2,6 +2,36 @@
 
 The latest version can be downloaded from the [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest) page.
 
+## 1.20.1
+
+Live preview fix: it shows the ribbon as Excel does. Projects and workbooks from previous versions open and save as before.
+
+### Fixes
+
+- **Large buttons**: the label is written on two balanced lines, as in Excel ("Nouvel / Article", "Envoyer par / courriel ▾"), and the button takes the width of the longest line, without "…". Same rule for the Excel groups drawn in the preview.
+- **Label** (`labelControl`): text only, no image.
+- **Control without an image** (button, toggle button, menu, split button, gallery): no image, as in Excel; in large size, the icon space stays empty.
+- **Menu or gallery with an imageMso**: its image is shown.
+- **Check box**: unchecked at first, as in Excel.
+- **Missing icon**: a generic picture replaces the "sparkles" icon in the preview, the structure, the inspector and the catalogs.
+- **Ribbon structure**: File menu (Backstage) items and each right-click menu can be collapsed.
+- **Properties panel**: its header stays on one line, with the element type in capitals (translated); collapsed, the whole strip reopens it, even at the bottom of a long page; open, a click on its title bar collapses it.
+
+## 1.20.0
+
+Keyboard shortcuts and an AI installed on your computer. Projects and workbooks from previous versions open and save as before.
+
+### New
+
+- **Keyboard shortcuts** (VBA Callbacks panel, "Keyboard shortcuts" section): disable an Excel key (Ctrl+C, Ctrl+V, F2…) or assign it to a procedure of the `RibbonDESIGNER` module, through `Application.OnKey`. Keys are set when the workbook opens or comes back to the front, and given back to Excel when it loses focus or closes (`ThisWorkbook` snippet to paste). The right-click "No copy and paste" preset can also disable the six copy-and-paste shortcuts (Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+Insert, Shift+Insert, Shift+Delete). Verified in Excel for Microsoft 365.
+- **AI Assistant: "AI on this computer" mode** (desktop version, optional): the prompt shown is sent in one click to Ollama or LM Studio installed on your computer, and the answer is checked automatically before any change. Only addresses of your own computer are accepted: nothing is sent over the Internet. Copy and paste remains the default mode.
+
+### Good to know
+
+- Shortcuts: no effect while typing in a cell or in dialog boxes; this is not a protection. In an add-in, closing the add-in without quitting Excel leaves the keys taken until Excel restarts: call `RestaurerRaccourcis` first (example in the module).
+- AI on this computer: install Ollama or LM Studio and a model yourself (both free); a model with at least 7 billion parameters is recommended. On the processor, a request can take several minutes.
+- There is no version 1.19.0: 1.20.0 brings together phases 19 and 20.
+
 ## 1.18.0
 
 Build a ribbon end to end from the application. Projects and workbooks from previous versions open and save as before.
