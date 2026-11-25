@@ -2,6 +2,36 @@
 
 La dernière version se télécharge sur la page [Releases](https://github.com/CustomUI-Studio/CustomUI-Studio/releases/latest).
 
+## 1.20.1
+
+Correctif de l'aperçu en direct : il montre le ruban comme Excel. Les projets et les classeurs des versions précédentes s'ouvrent et s'enregistrent comme avant.
+
+### Corrections
+
+- **Grands boutons** : le libellé s'écrit sur deux lignes équilibrées, comme dans Excel (« Nouvel / Article », « Envoyer par / courriel ▾ »), et le bouton prend la largeur de la plus longue ligne, sans « … ». Même règle pour les groupes d'Excel dessinés dans l'aperçu.
+- **Libellé** (`labelControl`) : texte seul, sans image.
+- **Contrôle sans image** (bouton, bascule, menu, bouton fractionné, galerie) : aucune image, comme dans Excel ; en grande taille, l'emplacement de l'icône reste vide.
+- **Menu ou galerie avec une imageMso** : son image est affichée.
+- **Case à cocher** : décochée au départ, comme dans Excel.
+- **Icône manquante** : une image générique remplace l'icône « étincelles » dans l'aperçu, la structure, l'inspecteur et les catalogues.
+- **Structure du ruban** : les éléments du menu Fichier (Backstage) et chaque menu clic droit se replient.
+- **Panneau Propriétés** : son en-tête reste sur une ligne, avec le type de l'élément en majuscules (traduit en anglais) ; replié, toute la bande le rouvre, même en bas d'une longue page ; ouvert, un clic sur sa barre de titre le replie.
+
+## 1.20.0
+
+Raccourcis clavier et IA installée sur l'ordinateur. Les projets et les classeurs des versions précédentes s'ouvrent et s'enregistrent comme avant.
+
+### Nouveautés
+
+- **Raccourcis clavier** (panneau Callbacks VBA, section « Raccourcis clavier ») : désactiver une touche d'Excel (Ctrl+C, Ctrl+V, F2…) ou la confier à une procédure du module `RibbonDESIGNER`, par `Application.OnKey`. Les touches sont posées à l'ouverture et quand le classeur revient au premier plan, et rendues à Excel quand il perd la main ou se ferme (extrait `ThisWorkbook` à coller). Le préréglage « Sans copier-coller » du clic droit peut désactiver aussi les six raccourcis du copier-coller (Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+Inser, Maj+Inser, Maj+Suppr). Vérifié dans Excel pour Microsoft 365.
+- **Assistant IA : mode « IA sur cet ordinateur »** (version de bureau, facultatif) : la demande affichée part en un clic vers Ollama ou LM Studio installés sur votre ordinateur, et la réponse est vérifiée automatiquement avant toute modification. Seules les adresses de votre ordinateur sont acceptées : rien n'est envoyé sur Internet. Le copier-coller reste le mode par défaut.
+
+### À savoir
+
+- Raccourcis : sans effet pendant la saisie dans une cellule et dans les boîtes de dialogue ; ce n'est pas une protection. Dans un complément, fermer le complément sans quitter Excel laisse les touches prises jusqu'au redémarrage d'Excel : appeler d'abord `RestaurerRaccourcis` (exemple dans le module).
+- IA sur cet ordinateur : installer soi-même Ollama ou LM Studio et un modèle (gratuits) ; un modèle d'au moins 7 milliards de paramètres est conseillé. Sur le processeur, une demande peut prendre plusieurs minutes.
+- Il n'y a pas de version 1.19.0 : la 1.20.0 réunit les phases 19 et 20.
+
 ## 1.18.0
 
 Construire un ruban de bout en bout depuis l'application. Les projets et les classeurs des versions précédentes s'ouvrent et s'enregistrent comme avant.
