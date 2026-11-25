@@ -13,7 +13,7 @@ Correctif de l'aperçu en direct : il montre le ruban comme Excel. Les projets e
 - **Contrôle sans image** (bouton, bascule, menu, bouton fractionné, galerie) : aucune image, comme dans Excel ; en grande taille, l'emplacement de l'icône reste vide.
 - **Menu ou galerie avec une imageMso** : son image est affichée.
 - **Case à cocher** : décochée au départ, comme dans Excel.
-- **Icône manquante** : une image générique remplace l'icône « étincelles » dans l'aperçu, la structure, l'inspecteur et les catalogues.
+- **Icône manquante** : une image générique remplace l'icône dans l'aperçu, la structure, l'inspecteur et les catalogues.
 - **Structure du ruban** : les éléments du menu Fichier (Backstage) et chaque menu clic droit se replient.
 - **Panneau Propriétés** : son en-tête reste sur une ligne, avec le type de l'élément en majuscules (traduit en anglais) ; replié, toute la bande le rouvre, même en bas d'une longue page ; ouvert, un clic sur sa barre de titre le replie.
 
