@@ -25,7 +25,7 @@
   · <a href="https://apps.microsoft.com/detail/9PH54K3T7TCT"><b>Microsoft Store</b></a>
 </p>
 
-![Constructeur visuel de CustomUI Studio](docs/capture-constructeur.png)
+![Constructeur visuel de CustomUI Studio](docs/capture-constructeur.gif)
 
 ## Pourquoi CustomUI Studio ?
 
